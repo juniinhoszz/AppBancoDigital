@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AppBancoDigital.Service
 {
-    internal class DataService
+    public class DataService
     {
     }
 }
