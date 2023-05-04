@@ -4,6 +4,22 @@
              x:Class="AppBancoDigital.MainPage">
 
     <StackLayout>
+
+        <Frame BorderColor="LightGray"
+       HasShadow="True"
+       CornerRadius="12"
+       HeightRequest="120"
+       WidthRequest="120">
+            <Frame.Background>
+                <!-- StartPoint defaults to (0,0) -->
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="Yellow"
+                          Offset="0.1" />
+                    <GradientStop Color="Green"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
