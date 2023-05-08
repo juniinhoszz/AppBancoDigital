@@ -18,7 +18,7 @@
             <Frame Opacity="1"
                    CornerRadius="15"
                    BorderColor="White"
-                   HeightRequest="350"
+                   HeightRequest="320"
                    WidthRequest="320"
                    BackgroundColor="Transparent"
                    VerticalOptions="CenterAndExpand"
@@ -29,23 +29,25 @@
                 <StackLayout>
                     <Label Text="ACESSAR A SUA CONTA"
                            TextColor="White"
-                           FontSize="25"
+                           FontSize="23" Style="{StaticResource bold}"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
 
                     <Label Text="CPF" 
                            TextColor="white"
-                           FontSize="15"
-                           Margin="5,0,10,0"/>
+                           FontSize="15" FontAttributes="Bold"
+                           Margin="5,5,0,0"
+                           Style="{StaticResource bold}"/>
                     <Entry x:Name="cpf_inserido"
                            Placeholder="Digite seu CPF" PlaceholderColor="Gainsboro"
-                           Margin="0,0,0,0" TextColor="White"
+                           Margin="0,0,0,0" TextColor="White" Style="{StaticResource regular}"
+                           MaxLength="11" Keyboard="Numeric"
                            />
 
                     <Label Text="Senha" 
                            TextColor="white"
-                           FontSize="15"
-                           Margin="5,0,10,0"/>
+                           FontSize="15" FontAttributes="Bold"
+                           Margin="5,0,0,0"/>
                     <Entry x:Name="senha_inserida"
                            Placeholder="Digite sua Senha" PlaceholderColor="Gainsboro"
                            Margin="0,0,0,0" TextColor="White"
@@ -54,21 +56,25 @@
 
                     <Button x:Name="btn_acessar"
                             Text="ACESSAR CONTA"
+                            Clicked="btn_acessar_Clicked"
                             FontAttributes="Bold"
                             FontSize="17"
                             CornerRadius="10"
                             BackgroundColor="#0081BD"
-                            TextColor="white"/>
+                            TextColor="white"
+                            VerticalOptions="EndAndExpand"/>
 
                     <Button x:Name="btn_novo_correntista"
                             Text="QUERO SER CLIENTE"
+                            Clicked="btn_novo_correntista_Clicked"
                             CornerRadius="10"
                             FontAttributes="Bold"
                             FontSize="17"
                             BackgroundColor="Transparent"
                             BorderColor="white"
                             TextColor="white"
-                            BorderWidth="2"/>
+                            BorderWidth="2"
+                            VerticalOptions="EndAndExpand"/>
                     
 
 

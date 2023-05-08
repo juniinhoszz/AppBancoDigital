@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppBancoDigital.View.CadastroCliente">
+    <ContentPage.Background>
+        <!-- StartPoint defaults to (0,0) -->
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#00A6F0"
+                          Offset="0.1" />
+            <GradientStop Color="#00D5D9"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="CADASTRAR CONTA DIGITAL"
+                   TextColor="White"
+                   FontSize="25" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" Margin="0,10,0,0"/>
+            <Label Text="IDENTIFIQUE-SE:"
+                   TextColor="White"
+                   FontSize="23" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" Margin="0,0,0,0"/>
+
+            <Label Text="CPF" 
+                           TextColor="white"
+                           FontSize="16" FontAttributes="Bold"
+                           Margin="5,5,0,0"/>
+            <Entry x:Name="cpf_inserido"
+                           Placeholder="Digite seu CPF" PlaceholderColor="Gainsboro"
+                           Margin="3,0,5,0" TextColor="White"
+                           MaxLength="11" Keyboard="Numeric"
+                           />
+
+            <Label Text="Nome Completo" 
+                           TextColor="white"
+                           FontSize="16" FontAttributes="Bold"
+                           Margin="5,5,0,0"/>
+            <Entry x:Name="nome_inserido"
+                           Placeholder="Digite seu Nome Completo" PlaceholderColor="Gainsboro"
+                           Margin="3,0,5,0" TextColor="White"
+                           />
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label FontAttributes="Bold" 
+                       Text="Check-in:" FontSize="16" TextColor="White" 
+                       Margin="5,11,0,0"/>
+
+                <DatePicker x:Name="dtpck_checkin"
+                                            Format="dd/MM/yyyy"
+                                            FontSize="18" TextColor="white"
+                                            BackgroundColor="Transparent" Margin="0,0,0,0"
+                                            FontAttributes="Bold"
+                                            DateSelected="dtpck_checkin_DateSelected"/>
+            </StackLayout>
+
+            <Label Text="Senha de Acesso" 
+                           TextColor="white"
+                           FontSize="16" FontAttributes="Bold"
+                           Margin="5,5,0,0"/>
+            <Entry x:Name="senha_inserido"
+                           Placeholder="Digite a Senha" PlaceholderColor="Gainsboro"
+                           Margin="3,0,5,0" TextColor="White"
+                           />
+
+            <Label Text="Confirmar Senha" 
+                           TextColor="white"
+                           FontSize="16" FontAttributes="Bold"
+                           Margin="5,5,0,0"/>
+            <Entry x:Name="senha2_inserido"
+                           Placeholder="Digite a Senha Novamente" PlaceholderColor="Gainsboro"
+                           Margin="3,0,5,0" TextColor="White"
+                           />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

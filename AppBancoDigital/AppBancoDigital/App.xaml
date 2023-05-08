@@ -3,6 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppBancoDigital.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="regular">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                Android="BancoDoBrasilRCTextos-Regular.ttf#BancoDoBrasilRCTextos-Regular" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
+            <Style TargetType="Label" x:Key="bold">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                Android="BancoDoBrasilRCTextos-Bold.ttf#BancoDoBrasilRCTextos-Bold" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="Xbold">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                Android="BancoDoBrasilRCTextos-Xbold.ttf#BancoDoBrasilRCTextos-Xbold"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
