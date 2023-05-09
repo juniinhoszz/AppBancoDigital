@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -22,7 +23,7 @@ namespace AppBancoDigital.View
         {
             try
             {
-                if (cpf_inserido.Text == "11111111111" & senha_inserida.Text == "123")
+                if (onlynumber(cpf_inserido.Text) == "11111111111" & senha_inserida.Text == "123")
                 {
                     //--criar página inicial para o usuario depois do login
                     await Navigation.PushAsync(new CadastroCliente());
@@ -48,6 +49,12 @@ namespace AppBancoDigital.View
             {
                 DisplayAlert("Erro!", ex.Message, "OK");
             }
+        }
+
+        string onlynumber(string str)
+        {
+            var onlynumber = new Regex(@"[^\d]");
+            return onlynumber.Replace(str, "");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="AppBancoDigital.View.Login">
     <ContentPage.Background>
         <!-- StartPoint defaults to (0,0) -->
@@ -39,10 +40,17 @@
                            Margin="5,5,0,0"
                            Style="{StaticResource bold}"/>
                     <Entry x:Name="cpf_inserido"
-                           Placeholder="Digite seu CPF" PlaceholderColor="Gainsboro"
+                           Placeholder="Digite seu CPF(sem pontos e traços)" PlaceholderColor="Gainsboro"
                            Margin="0,0,0,0" TextColor="White" Style="{StaticResource regular}"
-                           MaxLength="11" Keyboard="Numeric"
-                           />
+                           MaxLength="14" Keyboard="Numeric"
+                           >
+                        <Entry.Behaviors>
+                            <xct:MaskedBehavior 
+                            Mask="AAA.AAA.AAA-AA" 
+                            UnMaskedCharacter="A"
+                        />
+                        </Entry.Behaviors>
+                    </Entry>
 
                     <Label Text="Senha" 
                            TextColor="white"
@@ -64,6 +72,7 @@
                             TextColor="white"
                             VerticalOptions="EndAndExpand"/>
 
+
                     <Button x:Name="btn_novo_correntista"
                             Text="QUERO SER CLIENTE"
                             Clicked="btn_novo_correntista_Clicked"
@@ -75,7 +84,6 @@
                             TextColor="white"
                             BorderWidth="2"
                             VerticalOptions="EndAndExpand"/>
-                    
 
 
                 </StackLayout>

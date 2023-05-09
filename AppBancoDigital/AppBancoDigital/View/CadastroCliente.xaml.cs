@@ -16,11 +16,30 @@ namespace AppBancoDigital.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
         }
 
-        private void dtpck_checkin_DateSelected(object sender, DateChangedEventArgs e)
+        private void dtpck_dataNasc_DateSelected(object sender, DateChangedEventArgs e)
         {
+            
+        }
 
+        private void VerNaover_senha_Clicked(object sender, EventArgs e)
+        {
+            //TERMINAR DE FAZER A FUNÇÃO DE MOSTRAR SENHA
+            bool vendo = false;
+
+
+            if (vendo = false)
+            {
+                VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
+                vendo = true;
+            }
+            else
+            {
+                VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
+                vendo = false;
+            }
         }
     }
 }

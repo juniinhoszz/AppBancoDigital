@@ -41,36 +41,51 @@
                            Margin="3,0,5,0" TextColor="White"
                            />
 
-            <StackLayout Orientation="Horizontal">
+            <!--<StackLayout Orientation="Horizontal">-->
 
                 <Label FontAttributes="Bold" 
-                       Text="Check-in:" FontSize="16" TextColor="White" 
-                       Margin="5,11,0,0"/>
+                       Text="Data de Nascimento:" FontSize="16" TextColor="White" 
+                       Margin="5,5,0,0"/>
 
-                <DatePicker x:Name="dtpck_checkin"
+                <DatePicker x:Name="dtpck_dataNasc"
                                             Format="dd/MM/yyyy"
                                             FontSize="18" TextColor="white"
-                                            BackgroundColor="Transparent" Margin="0,0,0,0"
+                                            BackgroundColor="Transparent" 
+                                            Margin="0,0,290,0"
                                             FontAttributes="Bold"
-                                            DateSelected="dtpck_checkin_DateSelected"/>
-            </StackLayout>
+                                            DateSelected="dtpck_dataNasc_DateSelected"
+                                            />
+            <!--</StackLayout>-->
 
             <Label Text="Senha de Acesso" 
                            TextColor="white"
                            FontSize="16" FontAttributes="Bold"
                            Margin="5,5,0,0"/>
-            <Entry x:Name="senha_inserido"
-                           Placeholder="Digite a Senha" PlaceholderColor="Gainsboro"
-                           Margin="3,0,5,0" TextColor="White"
+            <Grid ColumnDefinitions="345,*">
+                <Entry x:Name="senha_inserido"
+                       Grid.Column="0"
+                       Placeholder="Digite a Senha" PlaceholderColor="Gainsboro"
+                       Margin="3,0,0,0" TextColor="White"
+                       IsPassword="True"
                            />
+                <ImageButton x:Name="VerNaover_senha"
+                             Grid.Column="1"
+                             WidthRequest="50" Scale="1.9"
+                             HorizontalOptions="EndAndExpand"
+                             BackgroundColor="Transparent"
+                             Clicked="VerNaover_senha_Clicked"
+                             /> 
+            </Grid>
+            
 
             <Label Text="Confirmar Senha" 
                            TextColor="white"
                            FontSize="16" FontAttributes="Bold"
                            Margin="5,5,0,0"/>
-            <Entry x:Name="senha2_inserido"
+            <Entry x:Name="senhaConfirm_inserido"
                            Placeholder="Digite a Senha Novamente" PlaceholderColor="Gainsboro"
                            Margin="3,0,5,0" TextColor="White"
+                           IsPassword="True"
                            />
 
 
