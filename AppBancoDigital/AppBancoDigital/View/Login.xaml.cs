@@ -17,6 +17,7 @@ namespace AppBancoDigital.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            logo.Source = ImageSource.FromResource("AppBancoDigital.Assets.JotaBank_Logo.png");
         }
 
         private async void btn_acessar_Clicked(object sender, EventArgs e)

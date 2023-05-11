@@ -15,7 +15,11 @@
     <ContentPage.Content>
         <StackLayout>
             
-            <Image />
+            <Image x:Name="logo"
+                   HeightRequest="200"
+                   Scale="1.3"
+                   Margin="0,10,0,0"
+                   />
 
             <Frame Opacity="1"
                    CornerRadius="15"
@@ -25,7 +29,7 @@
                    BackgroundColor="Transparent"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="5"
+                   Margin="5,0,05,100"
                    >
 
                 <StackLayout>
