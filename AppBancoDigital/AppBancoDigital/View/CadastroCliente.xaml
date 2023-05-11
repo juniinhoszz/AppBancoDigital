@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="AppBancoDigital.View.CadastroCliente">
     <ContentPage.Background>
         <!-- StartPoint defaults to (0,0) -->
@@ -8,85 +9,164 @@
             <GradientStop Color="#00A6F0"
                           Offset="0.1" />
             <GradientStop Color="#00D5D9"
-                          Offset="1.0" />
+                          Offset="0.7" />
         </LinearGradientBrush>
     </ContentPage.Background>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="CADASTRAR CONTA DIGITAL"
                    TextColor="White"
-                   FontSize="25" FontAttributes="Bold"
-                   HorizontalTextAlignment="Center" Margin="0,10,0,0"/>
+                   FontSize="23" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" Margin="0,10,0,0"
+                   Style="{StaticResource bold}"/>
             <Label Text="IDENTIFIQUE-SE:"
                    TextColor="White"
-                   FontSize="23" FontAttributes="Bold"
-                   HorizontalTextAlignment="Center" Margin="0,0,0,0"/>
+                   FontSize="20" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" Margin="0,0,0,0"
+                   Style="{StaticResource bold}"/>
 
             <Label Text="CPF" 
                            TextColor="white"
                            FontSize="16" FontAttributes="Bold"
-                           Margin="5,5,0,0"/>
+                           Margin="5,5,0,0"
+                           Style="{StaticResource bold}"/>
             <Entry x:Name="cpf_inserido"
                            Placeholder="Digite seu CPF" PlaceholderColor="Gainsboro"
-                           Margin="3,0,5,0" TextColor="White"
-                           MaxLength="11" Keyboard="Numeric"
-                           />
+                           Margin="3,0,5,0" TextColor="White"      
+                           Style="{StaticResource regular}"
+                           MaxLength="14" Keyboard="Numeric"
+                           >
+                <Entry.Behaviors>
+                    <xct:MaskedBehavior 
+                            Mask="AAA.AAA.AAA-AA" 
+                            UnMaskedCharacter="A"
+                        />
+                </Entry.Behaviors>
+            </Entry>
 
             <Label Text="Nome Completo" 
                            TextColor="white"
                            FontSize="16" FontAttributes="Bold"
-                           Margin="5,5,0,0"/>
+                           Margin="5,5,0,0"
+                           Style="{StaticResource bold}"/>
             <Entry x:Name="nome_inserido"
                            Placeholder="Digite seu Nome Completo" PlaceholderColor="Gainsboro"
                            Margin="3,0,5,0" TextColor="White"
-                           />
+                           Style="{StaticResource regular}"/>
 
-            <!--<StackLayout Orientation="Horizontal">-->
+            <!--<StackLayout Orientation="Horizontal">
 
-                <Label FontAttributes="Bold" 
+            <Label FontAttributes="Bold" 
                        Text="Data de Nascimento:" FontSize="16" TextColor="White" 
                        Margin="5,5,0,0"/>
 
-                <DatePicker x:Name="dtpck_dataNasc"
+            <DatePicker x:Name="dtpck_dataNasc"
                                             Format="dd/MM/yyyy"
                                             FontSize="18" TextColor="white"
                                             BackgroundColor="Transparent" 
                                             Margin="0,0,290,0"
                                             FontAttributes="Bold"
-                                            DateSelected="dtpck_dataNasc_DateSelected"
+                                            
                                             />
-            <!--</StackLayout>-->
+            </StackLayout> -->
+
+            <Label Text="Data de Nascimento" 
+                           TextColor="white"
+                           FontSize="15" FontAttributes="Bold"
+                           Margin="5,5,0,0"
+                           Style="{StaticResource bold}"/>
+            <Entry x:Name="dataNasc_inserido"
+                           Placeholder="Digite sua Data de Nascimento"
+                           PlaceholderColor="Gainsboro"
+                           Margin="0,0,0,0" TextColor="White" Style="{StaticResource regular}"
+                           MaxLength="10"
+                           Keyboard="Numeric"
+                           >
+                <Entry.Behaviors>
+                    <xct:MaskedBehavior 
+                            Mask="AA/AA/AAAA" 
+                            UnMaskedCharacter="A"
+                        />
+                </Entry.Behaviors>
+            </Entry>
 
             <Label Text="Senha de Acesso" 
                            TextColor="white"
                            FontSize="16" FontAttributes="Bold"
-                           Margin="5,5,0,0"/>
+                           Margin="5,5,0,0"
+                           Style="{StaticResource bold}"/>
+
             <Grid ColumnDefinitions="345,*">
                 <Entry x:Name="senha_inserido"
                        Grid.Column="0"
                        Placeholder="Digite a Senha" PlaceholderColor="Gainsboro"
                        Margin="3,0,0,0" TextColor="White"
                        IsPassword="True"
+                       Style="{StaticResource regular}"
                            />
                 <ImageButton x:Name="VerNaover_senha"
                              Grid.Column="1"
-                             WidthRequest="50" Scale="1.9"
+                             Margin="0,0,5,0"
+                             WidthRequest="50" Scale="0.8"
                              HorizontalOptions="EndAndExpand"
                              BackgroundColor="Transparent"
                              Clicked="VerNaover_senha_Clicked"
-                             /> 
+                             />
             </Grid>
-            
+
 
             <Label Text="Confirmar Senha" 
                            TextColor="white"
                            FontSize="16" FontAttributes="Bold"
-                           Margin="5,5,0,0"/>
-            <Entry x:Name="senhaConfirm_inserido"
+                           Margin="5,5,0,0"
+                           Style="{StaticResource bold}"/>
+            <Grid ColumnDefinitions="345,*">
+                <Entry x:Name="senhaConfirm_inserido"
+                       Grid.Column="0"
                            Placeholder="Digite a Senha Novamente" PlaceholderColor="Gainsboro"
                            Margin="3,0,5,0" TextColor="White"
-                           IsPassword="True"
-                           />
+                           IsPassword="True" Style="{StaticResource regular}"
+                />
+                <ImageButton x:Name="VerNaover_senha2"
+                             Grid.Column="1"
+                             Margin="0,0,5,0"
+                             WidthRequest="50" Scale="0.8"
+                             HorizontalOptions="EndAndExpand"
+                             BackgroundColor="Transparent"
+                             Clicked="VerNaover_senha2_Clicked"
+                             />
+            </Grid>
+            <Label Text="Ao continuar, você declara que: nasceu e tem domicílio fiscal apenas no Brasil, tem mais de 18 anos e é responsavel pelos seus atos, não é pessoa politicamente exposta e autoriza consulta aos seus dados no SCR/Bacen." 
+                   Style="{StaticResource bold}"
+                   Margin="5,0,5,0"
+                   FontSize="12"/>
+
+            <StackLayout VerticalOptions="EndAndExpand" Margin="0,0,0,07">
+                <Button x:Name="btn_cadastrar"
+                            Text="REALIZAR CADASTRO"
+                            Clicked="btn_cadastrar_Clicked"
+                            Margin="7,0,7,3"
+                            FontAttributes="Bold"
+                            FontSize="17"
+                            CornerRadius="10"
+                            BackgroundColor="#0081BD"
+                            TextColor="white"
+                            VerticalOptions="End"
+                            Style="{StaticResource bold}"/>
+
+                <Button x:Name="btn_voltar"
+                            Text="RETORNAR AO LOGIN"
+                            Clicked="btn_voltar_Clicked"
+                            CornerRadius="10" Margin="7,0,7,0"
+                            FontAttributes="Bold"
+                            FontSize="17"
+                            BackgroundColor="Transparent"
+                            BorderColor="white"
+                            TextColor="white"
+                            BorderWidth="2"
+                            VerticalOptions="End"
+                            Style="{StaticResource bold}"/>
+            </StackLayout>
 
 
         </StackLayout>

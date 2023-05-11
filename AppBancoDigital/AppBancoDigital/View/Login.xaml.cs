@@ -26,7 +26,9 @@ namespace AppBancoDigital.View
                 if (onlynumber(cpf_inserido.Text) == "11111111111" & senha_inserida.Text == "123")
                 {
                     //--criar página inicial para o usuario depois do login
-                    await Navigation.PushAsync(new CadastroCliente());
+                    //await Navigation.PushAsync(new CadastroCliente());
+
+                    await DisplayAlert("Sucesso!", "Login correto", "OK");
                 }
                 else
                 {
@@ -39,11 +41,11 @@ namespace AppBancoDigital.View
             }
         }
 
-        private async void btn_novo_correntista_Clicked(object sender, EventArgs e)
+        private void btn_novo_correntista_Clicked(object sender, EventArgs e)
         {
             try
             {
-                await Navigation.PushAsync(new CadastroCliente());
+                 App.Current.MainPage = new CadastroCliente();
             }
             catch(Exception ex)
             {

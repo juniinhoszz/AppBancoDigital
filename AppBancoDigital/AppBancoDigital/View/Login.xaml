@@ -9,11 +9,12 @@
             <GradientStop Color="#00A6F0"
                           Offset="0.1" />
             <GradientStop Color="#00D5D9"
-                          Offset="1.0" />
+                          Offset="0.7" />
         </LinearGradientBrush>
     </ContentPage.Background>
     <ContentPage.Content>
         <StackLayout>
+            
             <Image />
 
             <Frame Opacity="1"
@@ -24,7 +25,7 @@
                    BackgroundColor="Transparent"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="10"
+                   Margin="5"
                    >
 
                 <StackLayout>
@@ -55,11 +56,11 @@
                     <Label Text="Senha" 
                            TextColor="white"
                            FontSize="15" FontAttributes="Bold"
-                           Margin="5,0,0,0"/>
+                           Margin="5,0,0,0" Style="{StaticResource bold}"/>
                     <Entry x:Name="senha_inserida"
                            Placeholder="Digite sua Senha" PlaceholderColor="Gainsboro"
                            Margin="0,0,0,0" TextColor="White"
-                           IsPassword="True"
+                           IsPassword="True" Style="{StaticResource regular}"
                            />
 
                     <Button x:Name="btn_acessar"
@@ -70,7 +71,8 @@
                             CornerRadius="10"
                             BackgroundColor="#0081BD"
                             TextColor="white"
-                            VerticalOptions="EndAndExpand"/>
+                            VerticalOptions="EndAndExpand"
+                            Style="{StaticResource bold}"/>
 
 
                     <Button x:Name="btn_novo_correntista"
@@ -81,9 +83,10 @@
                             FontSize="17"
                             BackgroundColor="Transparent"
                             BorderColor="white"
-                            TextColor="white"
+                            TextColor="#0081BD"
                             BorderWidth="2"
-                            VerticalOptions="EndAndExpand"/>
+                            VerticalOptions="EndAndExpand"
+                            Style="{StaticResource bold}"/>
 
 
                 </StackLayout>

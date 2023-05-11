@@ -17,29 +17,87 @@ namespace AppBancoDigital.View
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
-        }
+            VerNaover_senha2.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
 
-        private void dtpck_dataNasc_DateSelected(object sender, DateChangedEventArgs e)
-        {
-            
         }
+        bool vendo = false;
+        bool vendo2 = false;
 
         private void VerNaover_senha_Clicked(object sender, EventArgs e)
         {
-            //TERMINAR DE FAZER A FUNÇÃO DE MOSTRAR SENHA
-            bool vendo = false;
-
-
-            if (vendo = false)
+            //FUNÇÃO DE MOSTRAR SENHA -- OK
+            try
             {
-                VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
-                vendo = true;
+                if (vendo == false)
+                {
+                    VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
+                    vendo = true;
+                    senha_inserido.IsPassword = false;
+                }
+                else
+                {
+                    VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
+                    vendo = false;
+                    senha_inserido.IsPassword = true;
+                }
+            }catch (Exception ex)
+            {
+                DisplayAlert("Erro!", ex.Message, "OK");
             }
-            else
+            
+        }
+
+        private void VerNaover_senha2_Clicked(object sender, EventArgs e)
+        {
+            //FUNÇÃO DE MOSTRAR SENHA -- OK
+            try
             {
-                VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
-                vendo = false;
+                if (vendo2 == false)
+                {
+                    VerNaover_senha2.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
+                    vendo2 = true;
+                    senhaConfirm_inserido.IsPassword = false;
+                }
+                else
+                {
+                    VerNaover_senha2.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
+                    vendo2 = false;
+                    senhaConfirm_inserido.IsPassword = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                DisplayAlert("Erro!", ex.Message, "OK");
             }
         }
+
+        private void btn_cadastrar_Clicked(object sender, EventArgs e)
+        {
+            //FUNÇÃO DE CADASTRAR CORRENTISTA
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Erro!", ex.Message, "OK");
+            }
+        }
+
+        private void btn_voltar_Clicked(object sender, EventArgs e)
+        {
+            //VOLTAR PARA O LOGIN -- OK
+
+            try
+            {
+                App.Current.MainPage = new Login();
+            }
+            catch(Exception ex)
+            {
+                DisplayAlert("Erro!", ex.Message, "OK");
+            }
+        }
+
+        
     }
 }
