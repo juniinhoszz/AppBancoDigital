@@ -11,7 +11,7 @@ namespace AppBancoDigital.Service
     {
         
          //Envia um Model em forma de JSON pra insert no banco.
-        public async Task<Correntista> Cadastrar(Correntista c)
+        public static async Task<Correntista> CadastrarCorrentistas(Correntista c)
         {
             var json_to_send = JsonConvert.SerializeObject(c);
 
