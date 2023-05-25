@@ -36,13 +36,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\CadastroCliente.xaml">
+    <Compile Update="View\Correntista\CadastroCorrentista.xaml.cs">
+      <DependentUpon>CadastroCorrentista.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="View\Correntista\CadastroCorrentista.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\LoadingPoPup.xaml">
+    <EmbeddedResource Update="View\Correntista\LoadingPoPup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\Login.xaml">
+    <EmbeddedResource Update="View\Acesso\Login.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Home.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

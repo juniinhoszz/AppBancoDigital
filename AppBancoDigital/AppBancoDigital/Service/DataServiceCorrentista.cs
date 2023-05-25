@@ -9,17 +9,26 @@ namespace AppBancoDigital.Service
 {
     public class DataServiceCorrentista : DataService
     {
-        
-         //Envia um Model em forma de JSON pra insert no banco.
+        /**
+         * Realiza o login do correntista.
+         */
+        public static async Task<Correntista> LoginAsync(Correntista c)
+        {
+            var json_to_send = JsonConvert.SerializeObject(c);
+
+            string json = await DataService.PostDataToService(json_to_send, "/correntista/login");
+
+            return JsonConvert.DeserializeObject<Correntista>(json);
+        }
+
+        //Envia um Model em forma de JSON pra insert no banco.
         public static async Task<Correntista> CadastrarCorrentistas(Correntista c)
         {
             var json_to_send = JsonConvert.SerializeObject(c);
 
             string json = await DataService.PostDataToService(json_to_send, "/correntista/save");
 
-            Correntista correntista = JsonConvert.DeserializeObject<Correntista>(json);
-
-            return correntista;
+            return JsonConvert.DeserializeObject<Correntista>(json);
         }
     }
 
