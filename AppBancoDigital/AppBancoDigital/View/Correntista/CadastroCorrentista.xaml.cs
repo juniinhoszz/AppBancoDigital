@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
@@ -22,11 +23,12 @@ namespace AppBancoDigital.View
             NavigationPage.SetHasNavigationBar(this, false);
             VerNaover_senha.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
             VerNaover_senha2.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
-
+            dtpck_dataNasc.MaximumDate = DateTime.Now;
+            dtpck_dataNasc.MinimumDate = new DateTime(1900, 1, 1);
         }
         bool vendo = false;
         bool vendo2 = false;
-        string senha;
+
         private void VerNaover_senha_Clicked(object sender, EventArgs e)
         {
             //FUNÇÃO DE MOSTRAR SENHA -- OK
@@ -44,11 +46,13 @@ namespace AppBancoDigital.View
                     vendo = false;
                     senha_inserido.IsPassword = true;
                 }
-            }catch (Exception ex)
+                //VendoNaoVendo(vendo);
+            }
+            catch (Exception ex)
             {
                 DisplayAlert("Erro!", ex.Message, "OK");
             }
-            
+
         }
 
         private void VerNaover_senha2_Clicked(object sender, EventArgs e)
@@ -68,50 +72,51 @@ namespace AppBancoDigital.View
                     vendo2 = false;
                     senhaConfirm_inserido.IsPassword = true;
                 }
+                //VendoNaoVendo(vendo2);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 DisplayAlert("Erro!", ex.Message, "OK");
             }
         }
-        
+
         private async void btn_cadastrar_Clicked(object sender, EventArgs e)
         {
             //FUNÇÃO DE CADASTRAR CORRENTISTA
-            
             try
             {
-                if(senhaConfirm_inserido != senha_inserido)
+                if (senhaConfirm_inserido.Text == senha_inserido.Text)
+                {
+                    string senha = senha_inserido.Text;
+
+                    Correntista c = await DataServiceCorrentista.CadastrarCorrentistas(new Correntista
+                    {
+                        Nome = nome_inserido.Text,
+                        CPF = onlynumber(cpf_inserido.Text),
+                        Data_nasc = dtpck_dataNasc.Date.ToString("yyyy-MM-dd"),
+                        Senha = senha
+                    });
+
+                    if (c.Id != null)
+                    {
+                        App.DadosCorrentista = c;
+
+                        //Navegando para a Tela Inicial após cadastrar e definir os dados do Correntista.
+                        //await Navigation.PushAsync(new View.TelaInicial());
+                    }
+                    else
+                        throw new Exception("Ocorreu um erro ao realizar seu cadastro.\nTente Novamente!");
+                }
+                else
                 {
                     DisplayAlert("Senhas diferentes!", "Confirme a senha digitada inicialmente", "OK");
                 }
-                else if(senhaConfirm_inserido == senha_inserido)
-                {
-                    senha = senha_inserido.Text;
-                }
-            }
-            catch(Exception ex)
-            {
-                DisplayAlert("Erro!", ex.Message, "OK");
-            }
-            try
-            {
                 //Navigation.ShowPopup(new LoadingPoPup());
 
-                //Correntista c = await DataServiceCorrentista.CadastrarCorrentistas(new Correntista
-                //{
-                //    Nome = nome_inserido.Text,
-                //    CPF= cpf_inserido.Text,
-                //    Data_nasc = DateTime.ParseExact(dataNasc_inserido.Text, "dd-MM-yyyy",
-                //                       System.Globalization.CultureInfo.InvariantCulture),
-                //    Senha = senha
-                //});
-                Console.WriteLine(cpf_inserido.Text + "\n" +
-                                  nome_inserido.Text + "\n" +
-                                  senha_inserido.Text);
-                                  //arrumar a data para Cadastrar um correntista
-                
-
+                //Console.WriteLine(onlynumber(cpf_inserido.Text) + "\n" +
+                //                  nome_inserido.Text + "\n" +
+                //                  dtpck_dataNasc.Date.ToString("yyyy-MM-dd") + "\n" +
+                //                  senha_inserido.Text);
 
             }
             catch (Exception ex)
@@ -128,10 +133,16 @@ namespace AppBancoDigital.View
             {
                 App.Current.MainPage = new Login();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 DisplayAlert("Erro!", ex.Message, "OK");
             }
         }
+        string onlynumber(string str)
+        {
+            var onlynumber = new Regex(@"[^\d]");
+            return onlynumber.Replace(str, "");
+        }
+
     }
 }
