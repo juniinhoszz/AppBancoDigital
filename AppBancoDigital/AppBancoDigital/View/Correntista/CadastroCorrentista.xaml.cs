@@ -109,19 +109,14 @@ namespace AppBancoDigital.View
                 }
                 else
                 {
-                    DisplayAlert("Senhas diferentes!", "Confirme a senha digitada inicialmente", "OK");
+                    await DisplayAlert("Senhas diferentes!", "Confirme a senha digitada inicialmente", "OK");
                 }
                 //Navigation.ShowPopup(new LoadingPoPup());
-
-                //Console.WriteLine(onlynumber(cpf_inserido.Text) + "\n" +
-                //                  nome_inserido.Text + "\n" +
-                //                  dtpck_dataNasc.Date.ToString("yyyy-MM-dd") + "\n" +
-                //                  senha_inserido.Text);
 
             }
             catch (Exception ex)
             {
-                DisplayAlert("Erro!", ex.Message, "OK");
+                await DisplayAlert("Erro!", ex.Message, "OK");
             }
         }
 
@@ -131,7 +126,7 @@ namespace AppBancoDigital.View
 
             try
             {
-                App.Current.MainPage = new Login();
+                App.Current.MainPage = new NavigationPage(new Login());
             }
             catch (Exception ex)
             {
