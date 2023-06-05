@@ -83,6 +83,7 @@ namespace AppBancoDigital.View
         private async void btn_cadastrar_Clicked(object sender, EventArgs e)
         {
             //FUNÇÃO DE CADASTRAR CORRENTISTA
+            // ARRUMAR - ERRO DE BAD REQUEST(400)
             try
             {
                 if (senhaConfirm_inserido.Text == senha_inserido.Text)
