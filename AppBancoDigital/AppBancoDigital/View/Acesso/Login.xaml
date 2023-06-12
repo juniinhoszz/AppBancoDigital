@@ -21,6 +21,7 @@
                    Margin="0,10,0,0"
                    />
 
+
             <Frame CornerRadius="15"
                    BorderColor="White"
                    HeightRequest="320"

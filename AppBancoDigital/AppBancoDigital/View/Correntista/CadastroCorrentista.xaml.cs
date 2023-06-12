@@ -83,30 +83,34 @@ namespace AppBancoDigital.View
         private async void btn_cadastrar_Clicked(object sender, EventArgs e)
         {
             //FUNÇÃO DE CADASTRAR CORRENTISTA
-            // ARRUMAR - ERRO DE BAD REQUEST(400)
             try
             {
                 if (senhaConfirm_inserido.Text == senha_inserido.Text)
                 {
                     string senha = senha_inserido.Text;
 
-                    Correntista c = await DataServiceCorrentista.CadastrarCorrentistas(new Correntista
+                    //ARRUMAR CADASTRO
+                    Correntista c = new Correntista
                     {
                         Nome = nome_inserido.Text,
                         CPF = onlynumber(cpf_inserido.Text),
                         Data_nasc = dtpck_dataNasc.Date.ToString("yyyy-MM-dd"),
                         Senha = senha
-                    });
+                    };
+                    //await DisplayAlert("Sucesso!", "Novo Cliente Cadastrado com Sucesso!", "Ir para Tela Inicial");
+                    //App.Current.MainPage = new NavigationPage(new View.Home());
 
-                    if (c.Id != null)
+                    if (c.Id == null)
                     {
+                        await DataServiceCorrentista.CadastrarCorrentistas(c);
                         App.DadosCorrentista = c;
+                        await DisplayAlert("Sucesso!", "Novo Cliente Cadastrado com Sucesso!", "Ir para Tela Inicial");
 
                         //Navegando para a Tela Inicial após cadastrar e definir os dados do Correntista.
                         //await Navigation.PushAsync(new View.TelaInicial());
                     }
                     else
-                        throw new Exception("Ocorreu um erro ao realizar seu cadastro.\nTente Novamente!");
+                        throw new Exception("Ocorreu um erro ao realizar seu cadastro.\nTente Novamente ou realize o Login se já possui uma conta.");
                 }
                 else
                 {
