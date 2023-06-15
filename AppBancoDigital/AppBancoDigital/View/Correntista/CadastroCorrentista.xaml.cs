@@ -28,6 +28,7 @@ namespace AppBancoDigital.View
         }
         bool vendo = false;
         bool vendo2 = false;
+        string senha;
 
         private void VerNaover_senha_Clicked(object sender, EventArgs e)
         {
@@ -79,43 +80,48 @@ namespace AppBancoDigital.View
                 DisplayAlert("Erro!", ex.Message, "OK");
             }
         }
+        
 
         private async void btn_cadastrar_Clicked(object sender, EventArgs e)
         {
+            
             //FUNÇÃO DE CADASTRAR CORRENTISTA
             try
             {
+                
                 if (senhaConfirm_inserido.Text == senha_inserido.Text)
                 {
-                    string senha = senha_inserido.Text;
-
-                    //ARRUMAR CADASTRO
-                    Correntista c = new Correntista
-                    {
-                        Nome = nome_inserido.Text,
-                        CPF = onlynumber(cpf_inserido.Text),
-                        Data_nasc = dtpck_dataNasc.Date.ToString("yyyy-MM-dd"),
-                        Senha = senha
-                    };
-                    //await DisplayAlert("Sucesso!", "Novo Cliente Cadastrado com Sucesso!", "Ir para Tela Inicial");
-                    //App.Current.MainPage = new NavigationPage(new View.Home());
-
-                    if (c.Id == null)
-                    {
-                        await DataServiceCorrentista.CadastrarCorrentistas(c);
-                        App.DadosCorrentista = c;
-                        await DisplayAlert("Sucesso!", "Novo Cliente Cadastrado com Sucesso!", "Ir para Tela Inicial");
-
-                        //Navegando para a Tela Inicial após cadastrar e definir os dados do Correntista.
-                        //await Navigation.PushAsync(new View.TelaInicial());
-                    }
-                    else
-                        throw new Exception("Ocorreu um erro ao realizar seu cadastro.\nTente Novamente ou realize o Login se já possui uma conta.");
+                    senha = senha_inserido.Text;
                 }
                 else
                 {
                     await DisplayAlert("Senhas diferentes!", "Confirme a senha digitada inicialmente", "OK");
                 }
+                //ARRUMAR CADASTRO
+                Correntista c = new Correntista
+                {
+                    Nome = nome_inserido.Text,
+                    CPF = onlynumber(cpf_inserido.Text),
+                    Data_nasc = dtpck_dataNasc.Date.ToString("yyyy-MM-dd"),
+                    Senha = senha
+                };
+                await DataServiceCorrentista.CadastrarCorrentistas(c);
+                //await DisplayAlert("Sucesso!", "Novo Cliente Cadastrado com Sucesso!", "Ir para Tela Inicial");
+                //App.Current.MainPage = new NavigationPage(new View.Home());
+
+                if (c.Id != null)
+                {
+                    
+                    App.DadosCorrentista = c;
+                    await DisplayAlert("Sucesso!", "Novo Cliente Cadastrado com Sucesso!", "Ir para Tela Inicial");
+
+                    //Navegando para a Tela Inicial após cadastrar e definir os dados do Correntista.
+                    //await Navigation.PushAsync(new View.TelaInicial());
+                }
+                else
+                    throw new Exception("Ocorreu um erro ao realizar seu cadastro.\nTente Novamente ou realize o Login se já possui uma conta.");
+
+
                 //Navigation.ShowPopup(new LoadingPoPup());
 
             }
