@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.ComponentModel;
 
 namespace AppBancoDigital.View
 {
@@ -75,6 +76,26 @@ namespace AppBancoDigital.View
         {
             var onlynumber = new Regex(@"[^\d]");
             return onlynumber.Replace(str, "");
+        }
+
+        private void cpf_inserido_Focused(object sender, FocusEventArgs e)
+        {
+            cpf_inserido.Placeholder = "Digite seu CPF(sem pontos e traços)";
+        }
+
+        private void cpf_inserido_Unfocused(object sender, FocusEventArgs e)
+        {
+            cpf_inserido.Placeholder = "CPF";
+        }
+
+        private void senha_inserida_Focused(object sender, FocusEventArgs e)
+        {
+            senha_inserida.Placeholder = "Digite sua Senha";
+        }
+
+        private void senha_inserida_Unfocused(object sender, FocusEventArgs e)
+        {
+            senha_inserida.Placeholder = "SENHA";
         }
     }
 }

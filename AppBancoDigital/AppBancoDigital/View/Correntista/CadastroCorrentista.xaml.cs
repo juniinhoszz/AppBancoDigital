@@ -152,6 +152,5 @@ namespace AppBancoDigital.View
             var onlynumber = new Regex(@"[^\d]");
             return onlynumber.Replace(str, "");
         }
-
     }
 }
