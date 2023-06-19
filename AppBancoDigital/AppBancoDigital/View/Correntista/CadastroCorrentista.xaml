@@ -31,10 +31,12 @@
                            Margin="5,5,0,0"
                            Style="{StaticResource bold}"/>
             <Entry x:Name="cpf_inserido"
-                           Placeholder="Digite seu CPF(sem traços e pontos)" PlaceholderColor="Gainsboro"
+                           Placeholder="CPF" PlaceholderColor="Gainsboro"
                            Margin="3,0,5,0" TextColor="White"      
                            Style="{StaticResource regular}"
                            MaxLength="14" Keyboard="Numeric"
+                           Focused="cpf_inserido_Focused"
+                           Unfocused="cpf_inserido_Unfocused"
                            >
                 <Entry.Behaviors>
                     <xct:MaskedBehavior 
@@ -50,9 +52,11 @@
                            Margin="5,5,0,0"
                            Style="{StaticResource bold}"/>
             <Entry x:Name="nome_inserido"
-                           Placeholder="Digite seu Nome Completo" PlaceholderColor="Gainsboro"
+                           Placeholder="Nome Completo" PlaceholderColor="Gainsboro"
                            Margin="3,0,5,0" TextColor="White"
-                           Style="{StaticResource regular}"/>
+                           Style="{StaticResource regular}"
+                           Focused="nome_inserido_Focused"
+                           Unfocused="nome_inserido_Unfocused"/>
 
             <!--<StackLayout Orientation="Horizontal">
 
@@ -150,7 +154,9 @@
                             BackgroundColor="#0081BD"
                             TextColor="white"
                             VerticalOptions="End"
-                            Style="{StaticResource bold}"/>
+                            Style="{StaticResource bold}"
+                            xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
+                            xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#00A6F0"/>
 
                 <Button x:Name="btn_voltar"
                             Text="RETORNAR AO LOGIN"
@@ -163,7 +169,9 @@
                             TextColor="white"
                             BorderWidth="2"
                             VerticalOptions="End"
-                            Style="{StaticResource bold}"/>
+                            Style="{StaticResource bold}"
+                            xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
+                            xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#00A6F0"/>
             </StackLayout>
 
 

@@ -152,5 +152,25 @@ namespace AppBancoDigital.View
             var onlynumber = new Regex(@"[^\d]");
             return onlynumber.Replace(str, "");
         }
+
+        private void cpf_inserido_Focused(object sender, FocusEventArgs e)
+        {
+            cpf_inserido.Placeholder = "Digite seu CPF(sem pontos e traços)";
+        }
+
+        private void cpf_inserido_Unfocused(object sender, FocusEventArgs e)
+        {
+            cpf_inserido.Placeholder = "CPF";
+        }
+
+        private void nome_inserido_Focused(object sender, FocusEventArgs e)
+        {
+            nome_inserido.Placeholder = "Digite seu Nome Completo";
+        }
+
+        private void nome_inserido_Unfocused(object sender, FocusEventArgs e)
+        {
+            nome_inserido.Placeholder = "Nome Completo";
+        }
     }
 }
