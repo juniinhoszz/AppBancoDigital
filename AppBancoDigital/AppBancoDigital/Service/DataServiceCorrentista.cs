@@ -16,7 +16,12 @@ namespace AppBancoDigital.Service
         {
             var json_to_send = JsonConvert.SerializeObject(c);
 
-            string json = await DataService.GetDataFromService(String.Format("/correntista/login?cpf={0}&senha={1}", c.CPF, c.Senha));
+            Console.WriteLine("__________________________________________________________________");
+            Console.WriteLine("DADOS QUE FORAM DIGITADOS PELO USUÁRIOS E JÁ CONVERTIDOS EM JSON: ");
+            Console.WriteLine(json_to_send);
+            Console.WriteLine("__________________________________________________________________");
+
+            string json = await DataService.PostDataToService(json_to_send, "/correntista/login");
                 
             return JsonConvert.DeserializeObject<Correntista>(json);
         }
