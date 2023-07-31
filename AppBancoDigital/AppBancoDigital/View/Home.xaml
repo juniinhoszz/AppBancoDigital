@@ -1,12 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="AppBancoDigital.View.Home">
+    <ContentPage.Background>
+        <!-- StartPoint defaults to (0,0) -->
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#00A6F0"
+                          Offset="0.1" />
+            <GradientStop Color="#00D5D9"
+                          Offset="0.7" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame HeightRequest="30"
+                   BackgroundColor="#00D5D9"
+                   BorderColor="Transparent">
+                <StackLayout Orientation="Horizontal">
+                    <Frame Grid.Row="0"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Padding="0"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           CornerRadius="100"
+                           IsClippedToBounds="True"
+                           HeightRequest="70"
+                           WidthRequest="30"
+                           BackgroundColor="#00D5D9"
+                           Scale="1.65"
+                           Margin="04,01,01,0">
+
+                        <ImageButton x:Name="CorrentistaImage"
+                           
+                                         Scale="1.8"
+                                         WidthRequest="100"
+                                         HeightRequest="40"
+                                         Padding="0" Margin="0"
+                                         BackgroundColor="#00D5D9"
+                                         BorderColor="Transparent"
+                                         VerticalOptions="CenterAndExpand"
+                                         CornerRadius="50"
+                                         Clicked="CorrentistaImage_Clicked"
+                                     xct:TouchEffect.AnimationDuration="180" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
+                                     xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#00D5D9"
+                                     />
+
+                    </Frame>
+
+
+                    <!--<Label x:Name="lblBoasVindas"
+                           TextColor="White" FontSize="18"
+                           Text="Bem-Vindo Teste"
+                           Margin="0,0,5,0"
+                           HorizontalTextAlignment="Start" 
+                           WidthRequest="200"
+                           HorizontalOptions="CenterAndExpand"
+                           FontAttributes="Bold"
+                           VerticalTextAlignment="Center"/>-->
+
+                    <ImageButton x:Name="Depositar"
+                           BackgroundColor="#00D5D9"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Center"
+                           HeightRequest="100"
+                           Padding="3"
+                           Scale="1.6"
+                           Margin="0,2,0,0"
+                           CornerRadius="50"
+                           Clicked="Depositar_Clicked" 
+                           xct:TouchEffect.AnimationDuration="180" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
+                           xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#94B9FF"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
+
+
     </ContentPage.Content>
 </ContentPage>

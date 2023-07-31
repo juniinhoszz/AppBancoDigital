@@ -84,7 +84,7 @@
                             TextColor="white"
                             VerticalOptions="EndAndExpand"
                             Style="{StaticResource bold}"
-                            xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
+                            xct:TouchEffect.AnimationDuration="180" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
                             xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#00A6F0"
                             
                             />
@@ -102,7 +102,7 @@
                             BorderWidth="2"
                             VerticalOptions="EndAndExpand"
                             Style="{StaticResource bold}"
-                            xct:TouchEffect.AnimationDuration="250" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
+                            xct:TouchEffect.AnimationDuration="180" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
                             xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#00A6F0"
                             />
 

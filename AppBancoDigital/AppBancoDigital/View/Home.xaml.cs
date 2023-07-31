@@ -15,6 +15,18 @@ namespace AppBancoDigital.View
         public Home()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            Depositar.Source = ImageSource.FromResource("AppBancoDigital.Assets.deposito.png");
+        }
+
+        private void CorrentistaImage_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Depositar_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
