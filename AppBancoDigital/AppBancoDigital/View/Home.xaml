@@ -3,18 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="AppBancoDigital.View.Home">
-    <ContentPage.Background>
-        <!-- StartPoint defaults to (0,0) -->
+    <!--<ContentPage.Background>
+         StartPoint defaults to (0,0) 
         <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#00A6F0"
-                          Offset="0.1" />
             <GradientStop Color="#00D5D9"
+                          Offset="0.1" />
+                <GradientStop Color="#00A6F0"
                           Offset="0.7" />
         </LinearGradientBrush>
-    </ContentPage.Background>
+    </ContentPage.Background> -->
     <ContentPage.Content>
-        <StackLayout>
-            <Frame HeightRequest="30"
+        <StackLayout BackgroundColor="#00A6F0">
+            <!--FAZER TELA E DIMINUIR BOTAO DEPOSITO / INSPIRADO EM FOTOS DO GOOGLE-->
+            <Frame HeightRequest="50"
                    BackgroundColor="#00D5D9"
                    BorderColor="Transparent">
                 <StackLayout Orientation="Horizontal">
@@ -23,14 +24,14 @@
                            Grid.ColumnSpan="2"
                            Padding="0"
                            HorizontalOptions="StartAndExpand"
-                           VerticalOptions="Center"
+                           VerticalOptions="StartAndExpand"
                            CornerRadius="100"
                            IsClippedToBounds="True"
-                           HeightRequest="70"
-                           WidthRequest="30"
+                           HeightRequest="40"
+                           WidthRequest="33"
                            BackgroundColor="#00D5D9"
                            Scale="1.65"
-                           Margin="04,01,01,0">
+                           Margin="05,9,05,9">
 
                         <ImageButton x:Name="CorrentistaImage"
                            
