@@ -19,7 +19,8 @@
                    BackgroundColor="#00D5D9"
                    BorderColor="Transparent">
                 <StackLayout Orientation="Horizontal">
-                    <Frame Grid.Row="0"
+
+                    <!--<Frame Grid.Row="0"
                            Grid.Column="1"
                            Grid.ColumnSpan="2"
                            Padding="0"
@@ -31,7 +32,7 @@
                            WidthRequest="33"
                            BackgroundColor="#00D5D9"
                            Scale="1.65"
-                           Margin="05,9,05,9">
+                           Margin="05,9,0,9">
 
                         <ImageButton x:Name="CorrentistaImage"
                            
@@ -48,7 +49,14 @@
                                      xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#00D5D9"
                                      />
 
-                    </Frame>
+                    </Frame>-->
+
+                    <Label x:Name="nome_user" 
+                           TextColor="White" FontSize="22"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           HorizontalOptions="StartAndExpand"/>
+                    
 
 
                     <!--<Label x:Name="lblBoasVindas"
@@ -59,7 +67,7 @@
                            WidthRequest="200"
                            HorizontalOptions="CenterAndExpand"
                            FontAttributes="Bold"
-                           VerticalTextAlignment="Center"/>-->
+                           VerticalTextAlignment="Center"/>
 
                     <ImageButton x:Name="Depositar"
                            BackgroundColor="#00D5D9"
@@ -72,10 +80,35 @@
                            CornerRadius="50"
                            Clicked="Depositar_Clicked" 
                            xct:TouchEffect.AnimationDuration="180" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
-                           xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#94B9FF"/>
+                           xct:TouchEffect.PressedScale="0.75" 
+                        xct:TouchEffect.PressedOpacity="0.6" 
+                        xct:TouchEffect.PressedBackgroundColor="#94B9FF"/> -->
+
+
+
                 </StackLayout>
             </Frame>
+
+
+            <ScrollView>
+                <StackLayout >
+                    <Label Text="Conta" FontSize="25"
+                       TextColor="White" FontAttributes="Bold"
+                   Margin="18,5,0,0"/>
+                    <Label Text="R$ 10,00" FontSize="25"
+                       TextColor="White" FontAttributes="Bold"
+                   Margin="18,0,0,10"/>
+                    
+
+                    <Button x:Name="ContaPoupanca" FontSize="20" FontAttributes="Bold"
+                        HeightRequest="100" Margin="16,0,16,10" CornerRadius="15"
+                        BackgroundColor="white" TextColor="#00A6F0"
+                            
+                    />
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
+
 
 
     </ContentPage.Content>

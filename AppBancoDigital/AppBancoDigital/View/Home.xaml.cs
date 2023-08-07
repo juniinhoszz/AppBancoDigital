@@ -16,7 +16,10 @@ namespace AppBancoDigital.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            Depositar.Source = ImageSource.FromResource("AppBancoDigital.Assets.deposito.png");
+            //Depositar.Source = ImageSource.FromResource("AppBancoDigital.Assets.deposito.png");
+            nome_user.Text ="Olá, "+ App.DadosCorrentista.Nome;
+            
+            ContaPoupanca.Text = "Iniciar\nConta\nPoupança";
         }
 
         private void CorrentistaImage_Clicked(object sender, EventArgs e)
