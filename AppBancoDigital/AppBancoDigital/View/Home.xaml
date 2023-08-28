@@ -14,42 +14,11 @@
     </ContentPage.Background> -->
     <ContentPage.Content>
         <StackLayout BackgroundColor="#00A6F0">
-            <!--FAZER TELA E DIMINUIR BOTAO DEPOSITO / INSPIRADO EM FOTOS DO GOOGLE-->
+
             <Frame HeightRequest="40"
                    BackgroundColor="#00D5D9"
                    BorderColor="#00D5D9">
                 <StackLayout Orientation="Horizontal">
-
-                    <!--<Frame Grid.Row="0"
-                           Grid.Column="1"
-                           Grid.ColumnSpan="2"
-                           Padding="0"
-                           HorizontalOptions="StartAndExpand"
-                           VerticalOptions="StartAndExpand"
-                           CornerRadius="100"
-                           IsClippedToBounds="True"
-                           HeightRequest="40"
-                           WidthRequest="33"
-                           BackgroundColor="#00D5D9"
-                           Scale="1.65"
-                           Margin="05,9,0,9">
-
-                        <ImageButton x:Name="CorrentistaImage"
-                           
-                                         Scale="1.8"
-                                         WidthRequest="100"
-                                         HeightRequest="40"
-                                         Padding="0" Margin="0"
-                                         BackgroundColor="#00D5D9"
-                                         BorderColor="Transparent"
-                                         VerticalOptions="CenterAndExpand"
-                                         CornerRadius="50"
-                                         Clicked="CorrentistaImage_Clicked"
-                                     xct:TouchEffect.AnimationDuration="180" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
-                                     xct:TouchEffect.PressedScale="0.75" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#00D5D9"
-                                     />
-
-                    </Frame>-->
 
                     <Frame CornerRadius="30"
                            HeightRequest="0"
@@ -59,41 +28,16 @@
                     </Frame>
 
 
-
                     <Label x:Name="nome_user" 
                            TextColor="White" FontSize="20"
                            FontAttributes="Bold"
                            VerticalOptions="CenterAndExpand"
                            HorizontalOptions="StartAndExpand"/>
 
-
-
-                    <!--<Label x:Name="lblBoasVindas"
-                           TextColor="White" FontSize="18"
-                           Text="Bem-Vindo Teste"
-                           Margin="0,0,5,0"
-                           HorizontalTextAlignment="Start" 
-                           WidthRequest="200"
-                           HorizontalOptions="CenterAndExpand"
-                           FontAttributes="Bold"
-                           VerticalTextAlignment="Center"/>
-
-                    <ImageButton x:Name="Depositar"
-                           BackgroundColor="#00D5D9"
-                           HorizontalOptions="EndAndExpand"
-                           VerticalOptions="Center"
-                           HeightRequest="100"
-                           Padding="3"
-                           Scale="1.35"
-                           Margin="0,2,0,0"
-                           CornerRadius="50"
-                           Clicked="Depositar_Clicked" 
-                           xct:TouchEffect.AnimationDuration="180" xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
-                           xct:TouchEffect.PressedScale="0.75" 
-                        xct:TouchEffect.PressedOpacity="0.6" 
-                        xct:TouchEffect.PressedBackgroundColor="#94B9FF"/> -->
-
-
+                    <Image x:Name="logo"
+                           HeightRequest="40"
+                           Scale="2"
+                           />
 
                 </StackLayout>
             </Frame>
@@ -110,38 +54,49 @@
                            >
 
                         <StackLayout Orientation="Horizontal">
-                            <StackLayout Margin="0,0,10,0" VerticalOptions="CenterAndExpand">
-                                <Label Text="Minha Conta Corrente" FontSize="20"
-                                   TextColor="#00A6F0" FontAttributes="Bold"
-                                   Margin="5,0,0,0"
-                                   VerticalOptions="CenterAndExpand"/>
+                            <Grid ColumnDefinitions="220,*"
+                                  RowDefinitions="25,*" 
+                                  Margin="0,0,10,0" 
+                                  VerticalOptions="CenterAndExpand">
+
+                                <Label Text="Conta Corrente" FontSize="20"
+                                       Grid.Column="0" Grid.Row="0" 
+                                       
+                                       TextColor="#00A6F0" FontAttributes="Bold"
+                                       Margin="0,0,0,0"
+                                       VerticalOptions="CenterAndExpand"/>
+
 
                                 <Label TextColor="#00A6F0"
-                                       Margin="9,0,0,0"
+                                       Margin="5,0,0,0"
                                        VerticalOptions="StartAndExpand"
+                                       Grid.Column="0" Grid.Row="1" 
+                                       
                                        >
-                                    
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <!--<Span Text="Minha Conta" FontSize="24" FontAttributes="Bold" />-->
                                             <Span x:Name="txt" Text="Saldo em conta" FontSize="17.5"/>
-                                           
                                             <Span x:Name="saldo" Text="R$ 10,00" FontSize="22" FontAttributes="Bold"/>
                                         </FormattedString>
                                     </Label.FormattedText>
-                                    
+
                                 </Label>
-                            </StackLayout>
+                            </Grid>
+
                             <StackLayout HorizontalOptions="EndAndExpand">
                                 <ImageButton x:Name="vendo" BackgroundColor="Transparent"
-                                             HeightRequest="34"
-                                             
+                                             HeightRequest="30"
+                                             Margin="30,03,0,0"
                                              Clicked="vendo_Clicked"
                                              />
                                 <!--DIMINUIR LARGURA DO BOTAO-->
-                                
+
                                 <Button Text="Extrato" FontAttributes="Bold"
-                                        BackgroundColor="Gainsboro"
+                                        BackgroundColor="AliceBlue"
+                                        BorderColor="#00A6F0"
+                                        BorderWidth="1"
+                                        Margin="0,01,0,0"
                                         VerticalOptions="EndAndExpand"
                                         TextColor="#00A6F0"
                                         CornerRadius="15"
@@ -164,6 +119,20 @@
                     />
 
 
+                </StackLayout>
+            </ScrollView>
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout>
+                    <ImageButton x:Name="teste"
+                             CornerRadius="50"
+                             BackgroundColor="red"
+                             HeightRequest="50"
+                             />
+
+                    <ImageButton x:Name="teste"
+                             CornerRadius="50"
+                             BackgroundColor="blue"
+                             />
                 </StackLayout>
             </ScrollView>
         </StackLayout>

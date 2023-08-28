@@ -93,7 +93,7 @@ namespace AppBancoDigital.View
                     senha = senha_inserido.Text;
 
                     //ARRUMAR CADASTRO
-                    Correntista c = await DataServiceCorrentista.CadastrarCorrentistas(new Correntista
+                    Model.Correntista c = await DataServiceCorrentista.CadastrarCorrentistas(new Model.Correntista
                     {
                         Nome = nome_inserido.Text,
                         CPF = onlynumber(cpf_inserido.Text),
@@ -106,7 +106,7 @@ namespace AppBancoDigital.View
 
                     if (c.Id != null)
                     {
-                        App.DadosCorrentista = c;
+                        //App.DadosCorrentista = c;
                         string msg = $"Novo Cliente Cadastrado com Sucesso!\nCódigo gerado: {c.Id} ";
                         await DisplayAlert("Sucesso!", msg, "Ir para Tela Inicial");
 

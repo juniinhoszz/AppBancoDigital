@@ -16,7 +16,9 @@ namespace AppBancoDigital.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            //Depositar.Source = ImageSource.FromResource("AppBancoDigital.Assets.deposito.png");
+            vendo.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
+            logo.Source = ImageSource.FromResource("AppBancoDigital.Assets.JotaBank_Logo.png");
+
             string nome;
             if (App.DadosCorrentista != null)
             {
@@ -26,11 +28,8 @@ namespace AppBancoDigital.View
                 nome = "teste";
             }
 
-            vendo.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
-            
-
+            saldo.Text = "━━━━━━";
             nome_user.Text ="Olá, "+ nome;
-            
             ContaPoupanca.Text = "Iniciar\nConta\nPoupança";
             //saldo.Text = "" + saldo.Text;
             txt.Text = "Saldo em conta\n";
