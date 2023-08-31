@@ -20,16 +20,21 @@
                    BorderColor="#00D5D9">
                 <StackLayout Orientation="Horizontal">
 
-                    <Frame CornerRadius="30"
-                           HeightRequest="0"
-                           WidthRequest="5">
-                        <ImageButton BackgroundColor="red"
-                                     HeightRequest="100"/>
-                    </Frame>
+
+                    <ImageButton BackgroundColor="#00A6F0"
+                                 x:Name="userPhoto"
+                                     HeightRequest="100"
+                                     WidthRequest="40"
+                                     CornerRadius="50"
+                                     Scale="1.4"
+                                     Aspect="AspectFill"
+                                    />
+                    
 
 
                     <Label x:Name="nome_user" 
-                           TextColor="White" FontSize="20"
+                           TextColor="White" FontSize="20.5"
+                           Margin="12,0,0,0"
                            FontAttributes="Bold"
                            VerticalOptions="CenterAndExpand"
                            HorizontalOptions="StartAndExpand"/>
@@ -37,6 +42,7 @@
                     <Image x:Name="logo"
                            HeightRequest="40"
                            Scale="2"
+                           Margin="20,0,03,02"
                            />
 
                 </StackLayout>
@@ -44,9 +50,9 @@
 
 
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Margin="0,01,0,01">
 
-                    <Frame BackgroundColor="White"
+                    <Frame BackgroundColor="white"
                            Margin="10,0,0,0"
                            CornerRadius="15"
                            HeightRequest="80"
@@ -101,8 +107,8 @@
                                         TextColor="#00A6F0"
                                         CornerRadius="15"
                                         WidthRequest="100"
-                                        HeightRequest="39"
-                                        FontSize="14"
+                                        HeightRequest="45"
+                                        FontSize="16"
                                         />
                             </StackLayout>
 
@@ -122,16 +128,65 @@
                 </StackLayout>
             </ScrollView>
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                <StackLayout>
-                    <ImageButton x:Name="teste"
+                <StackLayout Orientation="Horizontal">
+                    
+                    <ImageButton x:Name="pix"
                              CornerRadius="50"
-                             BackgroundColor="red"
-                             HeightRequest="50"
+                             BackgroundColor="#00D5D9"
+                             HeightRequest="67"
+                             WidthRequest="67"
+                             Margin="15,05,0,0"
                              />
 
-                    <ImageButton x:Name="teste"
+                    <ImageButton x:Name="pagarComQRCode"
                              CornerRadius="50"
-                             BackgroundColor="blue"
+                             BackgroundColor="#00D5D9"
+                             HeightRequest="67"
+                             WidthRequest="67"
+                             Margin="05,05,0,0"
+                             />
+
+                    <ImageButton x:Name="cofrinho"
+                             CornerRadius="50"
+                             BackgroundColor="#00D5D9"
+                             HeightRequest="67"
+                             WidthRequest="67"
+                             Margin="05,05,0,0"
+                             />
+
+                    <ImageButton x:Name="transacoesRecentes"
+                             CornerRadius="50"
+                             BackgroundColor="#00D5D9"
+                             HeightRequest="67"
+                             WidthRequest="67"
+                             Margin="5,05,0,0"
+                             />
+
+                    <!-- TENTAR FAZER FOREACH PARA ADICIONAR BOTÕES AUTOMATICAMENTE 
+                         COM PESSOAS DE TRANSACOES "PASSADAS" / adc imagens de pix 
+                    https://logopng.com.br/logo/pix-106 -->
+                    <ImageButton x:Name="teste4"
+                             CornerRadius="50"
+                             BackgroundColor="#00D5D9"
+                             HeightRequest="67"
+                             WidthRequest="67"
+                             Margin="05,05,0,0"
+                             />
+
+                    <ImageButton x:Name="teste5"
+                             CornerRadius="50"
+                             BackgroundColor="#00D5D9"
+                             HeightRequest="67"
+                             WidthRequest="67"
+                             Margin="05,05,0,0"
+                             />
+
+                    <ImageButton x:Name="teste6"
+                             CornerRadius="50"
+                             BackgroundColor="#00D5D9"
+                             HeightRequest="67"
+                             WidthRequest="67"
+                             Margin="5,05,15,0"
                              />
                 </StackLayout>
             </ScrollView>
