@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AppBancoDigital.Model;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,19 +20,33 @@ namespace AppBancoDigital.View
             vendo.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOn.png");
             logo.Source = ImageSource.FromResource("AppBancoDigital.Assets.JotaBank_Logo.png");
 
-            string nome;
+            string nomeCompleto;
             if (App.DadosCorrentista != null)
             {
-                nome = App.DadosCorrentista.Nome;
-            } else
+                nomeCompleto = App.DadosCorrentista.Nome;
+            }
+            else
             {
-                nome = "teste";
+                nomeCompleto = "teste";
+            }
+            string[] PrimeiroNome = nomeCompleto.Split(' ');
+            if (App.FotoCorrentista != null)
+            {
+                userPhoto.Source = App.FotoCorrentista;
+            }
+            else
+            {
+                userPhoto.Source = ImageSource.FromResource("AppBancoDigital.Assets.userPadrao.png");
             }
 
+            // ICONS BOTOES
+            pix.Source = ImageSource.FromResource("AppBancoDigital.Assets.pix-Icon.png");
+            pagarComQRCode.Source = ImageSource.FromResource("AppBancoDigital.Assets.qr-code.png");
+            cofrinho.Source = ImageSource.FromResource("AppBancoDigital.Assets.cofrinho.png");
+
             saldo.Text = "━━━━━━";
-            nome_user.Text ="Olá, "+ nome;
+            nome_user.Text = "Olá, " + PrimeiroNome[0];
             ContaPoupanca.Text = "Iniciar\nConta\nPoupança";
-            //saldo.Text = "" + saldo.Text;
             txt.Text = "Saldo em conta\n";
         }
         bool Vendo = false;

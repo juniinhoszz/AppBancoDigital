@@ -20,6 +20,7 @@ namespace AppBancoDigital
          * Armazena os dados do Correntista após o login.
          */
         public static Model.Correntista DadosCorrentista { get; set; }
+        public static ImageSource FotoCorrentista { get; set; }
 
         protected override void OnStart()
         {

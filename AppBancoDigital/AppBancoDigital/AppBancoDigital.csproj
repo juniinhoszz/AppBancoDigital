@@ -11,14 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\deposito.png" />
+    <None Remove="Assets\cofrinho.png" />
     <None Remove="Assets\eyeOff.png" />
     <None Remove="Assets\eyeOn.png" />
     <None Remove="Assets\JotaBank_Logo.png" />
+    <None Remove="Assets\pix-Icon.png" />
+    <None Remove="Assets\qr-code.png" />
+    <None Remove="Assets\userPadrao.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Assets\deposito.png">
+    <EmbeddedResource Include="Assets\cofrinho.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\eyeOff.png">
@@ -28,6 +31,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\JotaBank_Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\pix-Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\qr-code.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\userPadrao.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -46,6 +58,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="View\Ajustes-InformacoesUsuario.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\Correntista\CadastroCorrentista.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

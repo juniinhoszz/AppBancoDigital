@@ -29,7 +29,7 @@
                                      Scale="1.4"
                                      Aspect="AspectFill"
                                     />
-                    
+
 
 
                     <Label x:Name="nome_user" 
@@ -82,11 +82,10 @@
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <!--<Span Text="Minha Conta" FontSize="24" FontAttributes="Bold" />-->
-                                            <Span x:Name="txt" Text="Saldo em conta" FontSize="17.5"/>
+                                            <Span x:Name="txt" Text="Saldo em conta" FontSize="17.5" />
                                             <Span x:Name="saldo" Text="R$ 10,00" FontSize="22" FontAttributes="Bold"/>
                                         </FormattedString>
                                     </Label.FormattedText>
-
                                 </Label>
                             </Grid>
 
@@ -96,7 +95,7 @@
                                              Margin="30,03,0,0"
                                              Clicked="vendo_Clicked"
                                              />
-                                <!--DIMINUIR LARGURA DO BOTAO-->
+                                
 
                                 <Button Text="Extrato" FontAttributes="Bold"
                                         BackgroundColor="AliceBlue"
@@ -111,11 +110,7 @@
                                         FontSize="16"
                                         />
                             </StackLayout>
-
                         </StackLayout>
-
-
-
                     </Frame>
 
                     <Button x:Name="ContaPoupanca" FontSize="20" FontAttributes="Bold"
@@ -129,37 +124,41 @@
             </ScrollView>
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout Orientation="Horizontal">
-                    
+                    <!-- DIMINUIR IMAGEM DENTRO DO BOTAO -->
                     <ImageButton x:Name="pix"
                              CornerRadius="50"
-                             BackgroundColor="#00D5D9"
-                             HeightRequest="67"
-                             WidthRequest="67"
+                             BackgroundColor="white"
+                             HeightRequest="70"
+                             WidthRequest="70"
                              Margin="15,05,0,0"
+                             
                              />
 
                     <ImageButton x:Name="pagarComQRCode"
                              CornerRadius="50"
-                             BackgroundColor="#00D5D9"
-                             HeightRequest="67"
-                             WidthRequest="67"
+                             BackgroundColor="white"
+                             HeightRequest="70"
+                             WidthRequest="70"
                              Margin="05,05,0,0"
+                             
                              />
 
                     <ImageButton x:Name="cofrinho"
                              CornerRadius="50"
-                             BackgroundColor="#00D5D9"
-                             HeightRequest="67"
-                             WidthRequest="67"
+                             BackgroundColor="white"
+                             HeightRequest="70"
+                             WidthRequest="70"
                              Margin="05,05,0,0"
+                             Aspect="AspectFill"
                              />
 
                     <ImageButton x:Name="transacoesRecentes"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
-                             HeightRequest="67"
-                             WidthRequest="67"
+                             HeightRequest="70"
+                             WidthRequest="70"
                              Margin="5,05,0,0"
+                             
                              />
 
                     <!-- TENTAR FAZER FOREACH PARA ADICIONAR BOTÕES AUTOMATICAMENTE 
@@ -168,25 +167,28 @@
                     <ImageButton x:Name="teste4"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
-                             HeightRequest="67"
-                             WidthRequest="67"
+                             HeightRequest="70"
+                             WidthRequest="70"
                              Margin="05,05,0,0"
+                             Aspect="AspectFill"
                              />
 
                     <ImageButton x:Name="teste5"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
-                             HeightRequest="67"
-                             WidthRequest="67"
+                             HeightRequest="70"
+                             WidthRequest="70"
                              Margin="05,05,0,0"
+                             Aspect="AspectFill"
                              />
 
                     <ImageButton x:Name="teste6"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
-                             HeightRequest="67"
-                             WidthRequest="67"
+                             HeightRequest="70"
+                             WidthRequest="70"
                              Margin="5,05,15,0"
+                             Aspect="AspectFill"
                              />
                 </StackLayout>
             </ScrollView>
