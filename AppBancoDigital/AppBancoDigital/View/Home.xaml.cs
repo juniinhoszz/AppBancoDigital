@@ -86,5 +86,10 @@ namespace AppBancoDigital.View
         {
 
         }
+
+        private void pix_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new View.Funcoes.Pix.AreaPix());
+        }
     }
 }

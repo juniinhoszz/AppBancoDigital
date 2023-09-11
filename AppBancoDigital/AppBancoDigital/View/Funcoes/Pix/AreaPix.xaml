@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppBancoDigital.View.Funcoes.Pix.AreaPix">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="white" Margin="0.5,0,0.5,0">
+                <Grid ColumnDefinitions="*"
+                  RowDefinitions="*">
+                    <BoxView 
+                     CornerRadius="0,0,20,20"
+                     HeightRequest="60"
+                     BackgroundColor="#00D5D9"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     />
+
+                    <Button x:Name="btnVoltar" Text="Voltar" HorizontalOptions="StartAndExpand"
+                            CornerRadius="20" FontSize="18" FontAttributes="Bold"
+                            TextColor="white" BackgroundColor="Transparent"
+                            Scale="0.8" Clicked="btnVoltar_Clicked"/>
+
+                    <Label Text="Área Pix"
+                    TextColor="White" FontSize="20.5"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="12,0,0,0"
+                    FontAttributes="Bold"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Enviar e Receber" FontSize="20"
+                       Margin="10,02,0,0" TextColor="Black" />
+
+                <Grid ColumnDefinitions="70,70,70,70"
+                      RowDefinitions="60,30"
+                      BackgroundColor="Transparent">
+
+                    <Button Text="teste" Grid.Column="0"/>
+                    <Button Text="teste" Grid.Column="1"/>
+                    <Button Text="teste" Grid.Column="2"/>
+
+
+                    <Label Text="Enviar" HorizontalTextAlignment="Center" 
+                           TextColor="Black" FontSize="15"
+                           Grid.Row="1"/>
+
+                    <Label Text="Pagar com QRCode" HorizontalTextAlignment="Center" 
+                           TextColor="Black" FontSize="15"
+                           Grid.Row="1" Grid.Column="1"/>
+                    <!-- ALINHAR TITULO COM O BOTÃO E DPS FAZER A FUNÇÃO DO QRCODE -->
+
+                </Grid>
+
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

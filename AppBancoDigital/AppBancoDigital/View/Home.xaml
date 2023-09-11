@@ -23,10 +23,10 @@
 
                     <ImageButton BackgroundColor="#00A6F0"
                                  x:Name="userPhoto"
-                                     HeightRequest="100"
+                                     HeightRequest="10"
                                      WidthRequest="40"
                                      CornerRadius="50"
-                                     Scale="1.4"
+                                     Scale="1.35"
                                      Aspect="AspectFill"
                                     />
 
@@ -95,7 +95,7 @@
                                              Margin="30,03,0,0"
                                              Clicked="vendo_Clicked"
                                              />
-                                
+
 
                                 <Button Text="Extrato" FontAttributes="Bold"
                                         BackgroundColor="AliceBlue"
@@ -123,36 +123,45 @@
                 </StackLayout>
             </ScrollView>
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                <StackLayout Orientation="Horizontal">
-                    <!-- DIMINUIR IMAGEM DENTRO DO BOTAO -->
-                    <ImageButton x:Name="pix"
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" x:Name="Btns_funcoes">
+                        <!-- DIMINUIR IMAGEM DENTRO DO BOTAO -->
+                        <ImageButton x:Name="pix"
                              CornerRadius="50"
                              BackgroundColor="white"
                              HeightRequest="70"
                              WidthRequest="70"
                              Margin="15,05,0,0"
-                             
+                             Padding="5"
+                             BorderWidth="2"
+                             BorderColor="Azure"
+                             Clicked="pix_Clicked"
                              />
 
-                    <ImageButton x:Name="pagarComQRCode"
-                             CornerRadius="50"
+                        <ImageButton x:Name="pagarComQRCode"
+                             CornerRadius="20"
                              BackgroundColor="white"
                              HeightRequest="70"
                              WidthRequest="70"
                              Margin="05,05,0,0"
-                             
+                             Padding="13"
+                             BorderWidth="2"
+                             BorderColor="Azure"
                              />
 
-                    <ImageButton x:Name="cofrinho"
+                        <ImageButton x:Name="cofrinho"
                              CornerRadius="50"
                              BackgroundColor="white"
                              HeightRequest="70"
                              WidthRequest="70"
                              Margin="05,05,0,0"
                              Aspect="AspectFill"
+                             BorderWidth="2"
+                             BorderColor="Azure"
+                             Padding="10"
                              />
 
-                    <ImageButton x:Name="transacoesRecentes"
+                        <ImageButton x:Name="transacoesRecentes"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
                              HeightRequest="70"
@@ -161,10 +170,10 @@
                              
                              />
 
-                    <!-- TENTAR FAZER FOREACH PARA ADICIONAR BOTÕES AUTOMATICAMENTE 
+                        <!-- TENTAR FAZER FOREACH PARA ADICIONAR BOTÕES AUTOMATICAMENTE 
                          COM PESSOAS DE TRANSACOES "PASSADAS" / adc imagens de pix 
                     https://logopng.com.br/logo/pix-106 -->
-                    <ImageButton x:Name="teste4"
+                        <ImageButton x:Name="teste4"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
                              HeightRequest="70"
@@ -173,7 +182,7 @@
                              Aspect="AspectFill"
                              />
 
-                    <ImageButton x:Name="teste5"
+                        <ImageButton x:Name="teste5"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
                              HeightRequest="70"
@@ -182,7 +191,7 @@
                              Aspect="AspectFill"
                              />
 
-                    <ImageButton x:Name="teste6"
+                        <ImageButton x:Name="teste6"
                              CornerRadius="50"
                              BackgroundColor="#00D5D9"
                              HeightRequest="70"
@@ -190,6 +199,13 @@
                              Margin="5,05,15,0"
                              Aspect="AspectFill"
                              />
+                    </StackLayout>
+                    <!--<StackLayout Orientation="Horizontal">
+                        <Label Text="teste" HorizontalOptions="Center" Margin="05,0,05,0" FontSize="15"/>
+                        <Label Text="teste" HorizontalOptions="Center" Margin="05,0,05,0" FontSize="15"/>
+                        <Label Text="teste" HorizontalOptions="Center" Margin="05,0,05,0" FontSize="15"/>
+                        <Label Text="teste" HorizontalOptions="Center" Margin="05,0,05,0" FontSize="15"/>
+                    </StackLayout>-->
                 </StackLayout>
             </ScrollView>
         </StackLayout>
