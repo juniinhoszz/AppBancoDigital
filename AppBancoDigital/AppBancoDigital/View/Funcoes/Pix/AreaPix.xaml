@@ -7,7 +7,7 @@
             <StackLayout BackgroundColor="white" Margin="0.5,0,0.5,0">
                 <Grid ColumnDefinitions="*"
                   RowDefinitions="*">
-                    <BoxView 
+                    <BoxView
                      CornerRadius="0,0,20,20"
                      HeightRequest="60"
                      BackgroundColor="#00D5D9"
@@ -24,39 +24,128 @@
                     TextColor="White" FontSize="20.5"
                     Grid.Row="0"
                     Grid.Column="0"
-                    Margin="12,0,0,0"
+                    Margin="0,0,0,0"
                     FontAttributes="Bold"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"/>
                 </Grid>
             </StackLayout>
 
-            <StackLayout>
+            <StackLayout HorizontalOptions="Center">
                 <Label Text="Enviar e Receber" FontSize="20"
-                       Margin="10,02,0,0" TextColor="Black" />
+                       Margin="5,02,0,04" TextColor="Black" FontAttributes="Bold" />
 
-                <Grid ColumnDefinitions="70,70,70,70"
-                      RowDefinitions="60,30"
+                <Grid ColumnDefinitions="90,90,90,90"
+                      RowDefinitions="65,35"
                       BackgroundColor="Transparent">
 
-                    <Button Text="teste" Grid.Column="0"/>
-                    <Button Text="teste" Grid.Column="1"/>
-                    <Button Text="teste" Grid.Column="2"/>
+                    <ImageButton x:Name="TransferirPix" Aspect="AspectFit" 
+                                 Padding="8" Margin="0,0,0,0" CornerRadius="23" Grid.Column="0"
+                                 BackgroundColor="#00D5D9" BorderColor="Azure" BorderWidth="1"/>
+                    <ImageButton x:Name="PagarQRCode" Aspect="AspectFit" 
+                                 Padding="11" Margin="0,0,0,0" CornerRadius="23" Grid.Column="1"
+                                 BackgroundColor="#00D5D9" BorderColor="Azure" BorderWidth="1"/>
+                    <ImageButton x:Name="PixCopiaeCola" Aspect="AspectFit" 
+                                 Padding="10" Margin="0,0,0,0" CornerRadius="23" Grid.Column="2"
+                                 BackgroundColor="#00D5D9" BorderColor="Azure" BorderWidth="1"/>
+                    <ImageButton x:Name="CobrarPix" Aspect="AspectFit" 
+                                 Padding="11" Margin="0,0,0,0" CornerRadius="23" Grid.Column="3"
+                                 BackgroundColor="#00D5D9" BorderColor="Azure" BorderWidth="1"/>
 
 
-                    <Label Text="Enviar" HorizontalTextAlignment="Center" 
+                    <Label Text="Transferir" HorizontalTextAlignment="Center" 
+                           HorizontalOptions="Center"
                            TextColor="Black" FontSize="15"
                            Grid.Row="1"/>
 
-                    <Label Text="Pagar com QRCode" HorizontalTextAlignment="Center" 
+                    <Label Text="Pagar com QRCode" HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center"
                            TextColor="Black" FontSize="15"
                            Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Text="Pix Copia      e Cola" HorizontalTextAlignment="Center" 
+                           HorizontalOptions="Center"
+                           TextColor="Black" FontSize="15"
+                           Grid.Row="1" Grid.Column="2"/>
+
+                    <Label Text="Cobrar com Pix" HorizontalTextAlignment="Center" 
+                           HorizontalOptions="Center"
+                           TextColor="Black" FontSize="15"
+                           Grid.Row="1" Grid.Column="3"/>
                     <!-- ALINHAR TITULO COM O BOTÃO E DPS FAZER A FUNÇÃO DO QRCODE -->
 
                 </Grid>
 
+                <Label Text="Sugestões" FontSize="20"
+                       Margin="5,10,0,0" TextColor="Black" FontAttributes="Bold"/>
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <StackLayout x:Name="Sugestoes" Orientation="Horizontal">
+                        <ImageButton 
+                                 CornerRadius="50"
+                                 BackgroundColor="#00D5D9"
+                                 HeightRequest="70"
+                                 WidthRequest="70"
+                                 Margin="5,0,0,0"
+                                 Padding="5"
+                                 BorderWidth="2"
+                                 BorderColor="Azure"
+                                 />
+                        <!-- DEPOIS FAZER SUGESTOES AUTOMATICAS -->
+                    </StackLayout>
+                </ScrollView>
+
+                <Label Text="Minhas Chaves" FontSize="20"
+                       Margin="5,10,0,02" TextColor="Black" FontAttributes="Bold"/>
+
+                
+                <!--<Button CornerRadius="23"
+                            BackgroundColor="#00D5D9" BorderColor="Azure" 
+                            Text="Gerenciar Chaves" TextColor="white"/>-->
+
+
+                <StackLayout>
+
+
+                    <Frame HeightRequest="100"
+                       Margin="2,0,0,2"
+                       BackgroundColor="azure"
+                       BorderColor="#00D5D9"
+                       CornerRadius="20">
+                        <StackLayout x:Name="chavesPix">
+                            <StackLayout Orientation="Horizontal">
+                                <Image x:Name="tipoChaveIcon"
+                                       HeightRequest="10"
+                                       WidthRequest="50"
+                                       BackgroundColor="Transparent"/>
+                                <StackLayout Orientation="Vertical" Margin="5,0,0,0">
+                                    <Label x:Name="tipoChave" TextColor="Black"
+                                       Margin="03,0,0,0"
+                                       VerticalOptions="StartAndExpand"
+                                       Text="CPF" FontSize="20"/>
+                                    <Label x:Name="Chave" TextColor="black"
+                                           Margin="05,0,0,0"
+                                           VerticalOptions="StartAndExpand"
+                                           Text="***.111.***-11" FontSize="20"/>
+
+                                    
+                                </StackLayout>
+                                <ImageButton x:Name="copiarChave" HeightRequest="40" WidthRequest="34"
+                                             HorizontalOptions="EndAndExpand" VerticalOptions="End"
+                                             BackgroundColor="Transparent" Margin="0,0,05,0"/>
+                            </StackLayout>
+                            <Button CornerRadius="15" HorizontalOptions="Start" WidthRequest="200"
+                                    HeightRequest="40" Margin="0,00,0,0"
+                                    BackgroundColor="#00D5D9" BorderColor="Azure" 
+                                    Text="Gerenciar Chave" TextColor="white"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <Button CornerRadius="23" HeightRequest="45"
+                        BackgroundColor="#00D5D9" BorderColor="Azure" 
+                        VerticalOptions="EndAndExpand"
+                        Text="Cadastrar Nova Chave" FontAttributes="Bold" TextColor="white" Margin="0,0,0,0"/>
             </StackLayout>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -11,17 +11,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\cobrar.png" />
     <None Remove="Assets\cofrinho.png" />
+    <None Remove="Assets\copiaEcola.png" />
+    <None Remove="Assets\copiar.png" />
+    <None Remove="Assets\cpfCard.png" />
     <None Remove="Assets\eyeOff.png" />
     <None Remove="Assets\eyeOn.png" />
     <None Remove="Assets\JotaBank_Logo.png" />
     <None Remove="Assets\pix-Icon.png" />
     <None Remove="Assets\qr-code.png" />
+    <None Remove="Assets\transferir-dinheiro.png" />
     <None Remove="Assets\userPadrao.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\cobrar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\cofrinho.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\copiaEcola.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\copiar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\cpfCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\eyeOff.png">
@@ -37,6 +54,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\qr-code.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\transferir-dinheiro.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\userPadrao.png">
