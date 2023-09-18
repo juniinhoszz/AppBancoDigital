@@ -47,24 +47,8 @@ namespace AppBancoDigital.View
                 if (c.Id != null)
                 {
                     App.DadosCorrentista = c;
-                    //    new Model.Correntista
-                    //{
-                    //    Nome = c.Nome,
-                    //    CPF = c.CPF,
-                    //    Data_nasc = c.Data_nasc,
-                    //    Senha = c.Senha
-                    //};
-                    App.DadosConta = new Model.Conta
-                    {
-                        Tipo = c.TipoContaC,
-                        Saldo = c.SaldoContaC,
-                        Limite = c.LimiteContaC
-                    };
-
-                    Console.WriteLine(App.DadosConta.ToString());
+                    //Console.WriteLine("Conta "+c.Tipo + "\nCorrentista " + c.Nome);
                     App.Current.MainPage = new NavigationPage(new View.Home());
-                    
-                    //App.Current.MainPage = new View.TelaInicial();
                 }
                 else
                     throw new Exception("CPF ou senha Inválidos.\nTente Novamente!");

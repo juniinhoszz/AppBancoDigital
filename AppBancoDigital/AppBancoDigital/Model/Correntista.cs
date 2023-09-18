@@ -11,8 +11,5 @@ namespace AppBancoDigital.Model
         public string CPF { get; set; }
         public string Data_nasc { get; set;}
         public string Senha { get; set; }
-        public string TipoContaC { get; set; }
-        public double SaldoContaC { get; set; }
-        public double LimiteContaC { get; set; }
     }
 }
