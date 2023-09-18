@@ -10,7 +10,7 @@ namespace AppBancoDigital.Service
     public class DataService
     {
         private static readonly string server = "http://10.0.2.2:8000";
-
+        public string DadosContaCorrentista = "";
 
         //Método que busca os Dados de um Serviço
         protected static async Task<string> GetDataFromService(string rota)
@@ -30,7 +30,7 @@ namespace AppBancoDigital.Service
             {
                 HttpResponseMessage response = await client.GetAsync(uri);
 
-                Console.WriteLine("_______________________________");
+                Console.WriteLine("_____________________________");
                 Console.WriteLine(response.Content.ReadAsStringAsync().Result);
                 Console.WriteLine("_______________________________");
 
@@ -64,7 +64,7 @@ namespace AppBancoDigital.Service
                     new StringContent(json_object, Encoding.UTF8, "application/json")
                 );
 
-                Console.WriteLine("_______________________________");
+                Console.WriteLine("DADOS_______________________________");
                 Console.WriteLine(response.Content.ReadAsStringAsync().Result);
                 Console.WriteLine("_______________________________");
 

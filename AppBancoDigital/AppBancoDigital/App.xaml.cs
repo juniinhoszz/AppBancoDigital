@@ -13,13 +13,14 @@ namespace AppBancoDigital
             InitializeComponent();
 
             //MainPage = new NavigationPage(new Login());
-            MainPage = new NavigationPage(new Home());
+            MainPage = new NavigationPage(new Login());
         }
 
         /**
          * Armazena os dados do Correntista após o login.
          */
         public static Model.Correntista DadosCorrentista { get; set; }
+        public static Model.Conta DadosConta { get; set; }
         public static ImageSource FotoCorrentista { get; set; }
 
         protected override void OnStart()
