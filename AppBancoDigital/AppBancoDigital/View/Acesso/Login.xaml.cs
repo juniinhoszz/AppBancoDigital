@@ -26,18 +26,6 @@ namespace AppBancoDigital.View
         {
             try
             {
-                //if (onlynumber(cpf_inserido.Text) == "11111111111" & senha_inserida.Text == "123")
-                //{
-                //    //--criar página inicial para o usuario depois do login
-                //    //await Navigation.PushAsync(new CadastroCliente());
-
-                //    await DisplayAlert("Sucesso!", "Login correto", "OK");
-                //}
-                //else
-                //{
-                //    DisplayAlert("Erro!", "CPF ou senha Inválidos.\nTente Novamente", "OK");
-                //}
-
                 Model.Correntista c = await DataServiceCorrentista.LoginAsync(new Model.Correntista
                 {
                     CPF = onlynumber(cpf_inserido.Text),
@@ -47,7 +35,7 @@ namespace AppBancoDigital.View
                 if (c.Id != null)
                 {
                     App.DadosCorrentista = c;
-                    //Console.WriteLine("Conta "+c.Tipo + "\nCorrentista " + c.Nome);
+                    //Console.WriteLine("Saldo "+c.Saldo + "\nCorrentista " + c.Nome);
                     App.Current.MainPage = new NavigationPage(new View.Home());
                 }
                 else

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AppBancoDigital.Model;
-
+using AppBancoDigital.Service;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -50,6 +50,7 @@ namespace AppBancoDigital.View
             txt.Text = "Saldo em conta\n";
         }
         bool Vendo = false;
+        //string saldoCorrente = App.DadosConta.Saldo.ToString("C").Replace("$", "");
 
         private void vendo_Clicked(object sender, EventArgs e)
         {
@@ -60,7 +61,7 @@ namespace AppBancoDigital.View
                 {
                     vendo.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
                     Vendo = true;
-                    saldo.Text = "R$ 10,00";
+                    saldo.Text = "R$ " + App.DadosConta.Saldo.ToString("C").Replace("$", "");
                 }
                 else
                 {
@@ -90,6 +91,17 @@ namespace AppBancoDigital.View
         private void pix_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new View.Funcoes.Pix.AreaPix());
+        }
+
+        protected override async void OnAppearing()
+        {
+            Conta co = await DataServiceConta.GetContaByIdCorrentista(App.DadosCorrentista.Id);
+
+            if(co.Id != null) 
+            {
+                App.DadosConta = co;
+            }
+            //Console.WriteLine("Saldo: " + App.DadosConta.Saldo);
         }
     }
 }
