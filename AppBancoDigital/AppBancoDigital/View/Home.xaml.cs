@@ -48,6 +48,8 @@ namespace AppBancoDigital.View
             nome_user.Text = "Olá, " + PrimeiroNome[0];
             ContaPoupanca.Text = "Iniciar\nConta\nPoupança";
             txt.Text = "Saldo em conta\n";
+            txt1.Text = "Saldo em conta\n";
+            
         }
         bool Vendo = false;
         //string saldoCorrente = App.DadosConta.Saldo.ToString("C").Replace("$", "");
@@ -61,7 +63,7 @@ namespace AppBancoDigital.View
                 {
                     vendo.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
                     Vendo = true;
-                    saldo.Text = "R$ " + App.DadosConta.Saldo.ToString("C").Replace("$", "");
+                    saldo.Text = "R$ " + App.DadosContaC.Saldo.ToString("C").Replace("$", "").Replace(".",",");
                 }
                 else
                 {
@@ -69,7 +71,7 @@ namespace AppBancoDigital.View
                     Vendo = false;
                     saldo.Text = "━━━━━━";
                 }
-                //VendoNaoVendo(vendo);
+                
             }
             catch (Exception ex)
             {
@@ -83,10 +85,6 @@ namespace AppBancoDigital.View
 
         }
 
-        private void Depositar_Clicked(object sender, EventArgs e)
-        {
-
-        }
 
         private void pix_Clicked(object sender, EventArgs e)
         {
@@ -95,13 +93,40 @@ namespace AppBancoDigital.View
 
         protected override async void OnAppearing()
         {
-            Conta co = await DataServiceConta.GetContaByIdCorrentista(App.DadosCorrentista.Id);
+            Conta contaC = await DataServiceConta.GetCorrenteByIdCorrentista(App.DadosCorrentista.Id);
 
-            if(co.Id != null) 
+            if(contaC.Id != null) 
             {
-                App.DadosConta = co;
+                App.DadosContaC = contaC;
             }
-            //Console.WriteLine("Saldo: " + App.DadosConta.Saldo);
+            /*Conta ContaP = await DataServiceConta.GetPoupancaByIdCorrentista(App.DadosCorrentista.Id);
+            if(ContaP.Id != null)
+            {
+                ContaPoupanca.IsVisible = false;
+                poupancaMostrar.IsVisible = true;
+                saldoP.Text = "R$ " + App.DadosContaP.Saldo.ToString("C");
+            }*/
+        }
+
+        private async void ContaPoupanca_Clicked(object sender, EventArgs e)
+        {
+            await DataServiceConta.CriarPoupanca(App.DadosCorrentista.Id);
+            Model.Conta contaP = await DataServiceConta.GetPoupancaByIdCorrentista(App.DadosCorrentista.Id);
+            Console.WriteLine("tipo "+contaP.Tipo);
+
+            if(contaP.Id != null)
+            {
+                App.DadosContaP = contaP;
+                DisplayAlert("Sucesso!", "Conta Poupança Criada!", "OK");
+                //ContaPoupanca.IsVisible = false; certo
+                ContaPoupanca.IsVisible = false;
+                poupancaMostrar.IsVisible = true;
+                saldoP.Text = "R$ " + App.DadosContaP.Saldo.ToString("C");
+            }
+            else
+            {
+                DisplayAlert("Ops!", "Não foi possivel criar sua Conta Poupança!\n Tente Novamente.", "OK");
+            }
         }
     }
 }
