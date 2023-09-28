@@ -16,5 +16,10 @@ namespace AppBancoDigital.View.Funcoes.Pix
         {
             InitializeComponent();
         }
+
+        private void btnVoltar_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

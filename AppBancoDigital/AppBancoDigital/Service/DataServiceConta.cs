@@ -9,11 +9,11 @@ namespace AppBancoDigital.Service
 {
     public class DataServiceConta : DataService
     {
-        public static async Task<Conta> GetCorrenteByIdCorrentista(int? id)
+        public static async Task<Conta> GetContaByTipoeIdCorrentista(Conta co)
         {
-            var json_to_send = JsonConvert.SerializeObject(id);
+            var json_to_send = JsonConvert.SerializeObject(co);
 
-            string json = await DataService.PostDataToService(json_to_send, "/conta/vercorrente");
+            string json = await DataService.PostDataToService(json_to_send, "/conta/vercontabytipoeid");
 
             return JsonConvert.DeserializeObject<Conta>(json);
         }
@@ -23,15 +23,6 @@ namespace AppBancoDigital.Service
             var json_to_send = JsonConvert.SerializeObject(id);
 
             string json = await DataService.PostDataToService(json_to_send, "/conta/criarpoupanca");
-
-            return JsonConvert.DeserializeObject<Conta>(json);
-        }
-
-        public static async Task<Conta> GetPoupancaByIdCorrentista(int? id)
-        {
-            var json_to_send = JsonConvert.SerializeObject(id);
-
-            string json = await DataService.PostDataToService(json_to_send, "/conta/verpoupanca");
 
             return JsonConvert.DeserializeObject<Conta>(json);
         }

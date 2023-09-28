@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AppBancoDigital.Model;
 using AppBancoDigital.Service;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -49,7 +50,9 @@ namespace AppBancoDigital.View
             ContaPoupanca.Text = "Iniciar\nConta\nPoupança";
             txt.Text = "Saldo em conta\n";
             txt1.Text = "Saldo em conta\n";
-            
+
+
+
         }
         bool Vendo = false;
         //string saldoCorrente = App.DadosConta.Saldo.ToString("C").Replace("$", "");
@@ -63,7 +66,7 @@ namespace AppBancoDigital.View
                 {
                     vendo.Source = ImageSource.FromResource("AppBancoDigital.Assets.eyeOff.png");
                     Vendo = true;
-                    saldo.Text = "R$ " + App.DadosContaC.Saldo.ToString("C").Replace("$", "").Replace(".",",");
+                    saldo.Text = "R$ " + App.DadosContaC.Saldo.ToString().Replace("$", "").Replace(".", ",");
                 }
                 else
                 {
@@ -71,7 +74,7 @@ namespace AppBancoDigital.View
                     Vendo = false;
                     saldo.Text = "━━━━━━";
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -93,35 +96,69 @@ namespace AppBancoDigital.View
 
         protected override async void OnAppearing()
         {
-            Conta contaC = await DataServiceConta.GetCorrenteByIdCorrentista(App.DadosCorrentista.Id);
+            Conta contaC = await DataServiceConta.GetContaByTipoeIdCorrentista(new Model.Conta
+            {
+                Id_correntista = (int)App.DadosCorrentista.Id,
+                Tipo = "C",
+            });
 
-            if(contaC.Id != null) 
+            if (contaC.Id != null)
             {
                 App.DadosContaC = contaC;
             }
-            /*Conta ContaP = await DataServiceConta.GetPoupancaByIdCorrentista(App.DadosCorrentista.Id);
-            if(ContaP.Id != null)
+
+            Conta contaP = await DataServiceConta.GetContaByTipoeIdCorrentista(new Model.Conta
             {
+                Id_correntista = (int)App.DadosCorrentista.Id,
+                Tipo = "P",
+            });
+            Console.WriteLine(contaP.Saldo);
+
+            if (contaP.Id != null)
+            {
+                App.DadosContaP = contaP;
                 ContaPoupanca.IsVisible = false;
                 poupancaMostrar.IsVisible = true;
-                saldoP.Text = "R$ " + App.DadosContaP.Saldo.ToString("C");
-            }*/
+                string saldo;
+                if (App.DadosContaC.Saldo.HasValue)
+                {
+                    saldo = App.DadosContaC.Saldo.ToString().Replace("$", "").Replace(".", ",");
+                }
+                else
+                {
+                    saldo = 0.ToString("C");
+                }
+                saldoP.Text = "R$ " + saldo;
+            }
         }
 
         private async void ContaPoupanca_Clicked(object sender, EventArgs e)
         {
             await DataServiceConta.CriarPoupanca(App.DadosCorrentista.Id);
-            Model.Conta contaP = await DataServiceConta.GetPoupancaByIdCorrentista(App.DadosCorrentista.Id);
-            Console.WriteLine("tipo "+contaP.Tipo);
+            Model.Conta contaP = await DataServiceConta.GetContaByTipoeIdCorrentista(new Model.Conta
+            {
+                Id_correntista = (int)App.DadosCorrentista.Id,
+                Tipo = "P",
+            });
+            Console.WriteLine("tipo " + contaP.Tipo);
 
-            if(contaP.Id != null)
+            if (contaP.Id != null)
             {
                 App.DadosContaP = contaP;
                 DisplayAlert("Sucesso!", "Conta Poupança Criada!", "OK");
-                //ContaPoupanca.IsVisible = false; certo
                 ContaPoupanca.IsVisible = false;
+                //ContaPoupanca.BackgroundColor = Color.Red;
                 poupancaMostrar.IsVisible = true;
-                saldoP.Text = "R$ " + App.DadosContaP.Saldo.ToString("C");
+                string saldo;
+                if (App.DadosContaC.Saldo.HasValue)
+                {
+                    saldo = App.DadosContaC.Saldo.ToString().Replace("$", "").Replace(".", ",");
+                }
+                else
+                {
+                    saldo = 0.ToString("C");
+                }
+                saldoP.Text = "R$ " + saldo;
             }
             else
             {
