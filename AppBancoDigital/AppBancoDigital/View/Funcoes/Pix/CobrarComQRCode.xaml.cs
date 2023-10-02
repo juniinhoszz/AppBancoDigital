@@ -15,11 +15,17 @@ namespace AppBancoDigital.View.Funcoes.Pix
         public CobrarComQRCode()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void btnVoltar_Clicked(object sender, EventArgs e)
         {
+            Navigation.PopAsync();
+        }
 
+        private void valor_inserido_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }

@@ -29,5 +29,10 @@ namespace AppBancoDigital.View.Funcoes.Pix
         {
             Navigation.PopAsync();
         }
+
+        private void CobrarPix_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new View.Funcoes.Pix.CobrarComQRCode());
+        }
     }
 }

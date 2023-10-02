@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="AppBancoDigital.View.Funcoes.Pix.CobrarComQRCode">
     <ContentPage.Content>
         <StackLayout>
@@ -25,12 +26,33 @@
                                 TextColor="White" FontSize="20.5"
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                Margin="0,0,0,0"
+                                Margin="15,0,0,0"
                                 FontAttributes="Bold"
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Quanto você deseja receber?" FontSize="20"
+                            Margin="5,0,0,0" TextColor="Black" FontAttributes="Bold" />
+
+                    <Entry x:Name="valor_inserido"
+                           Placeholder="Valor" PlaceholderColor="black"
+                           Margin="0,0,10,0" TextColor="black" Style="{StaticResource regular}"
+                           Keyboard="Numeric"
+                           TextChanged="valor_inserido_TextChanged"
+                           >
+                        <!-- falta fazer mascara --> 
+                        <Entry.Behaviors>
+                            <xct:MaskedBehavior 
+                                Mask="R$ AA,AA" 
+                                UnMaskedCharacter="A"
+                            />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

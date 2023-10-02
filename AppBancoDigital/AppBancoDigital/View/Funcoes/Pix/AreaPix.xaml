@@ -50,7 +50,8 @@
                                  BackgroundColor="#00D5D9" BorderColor="Azure" BorderWidth="1"/>
                     <ImageButton x:Name="CobrarPix" Aspect="AspectFit" 
                                  Padding="11" Margin="0,0,0,0" CornerRadius="23" Grid.Column="3"
-                                 BackgroundColor="#00D5D9" BorderColor="Azure" BorderWidth="1"/>
+                                 BackgroundColor="#00D5D9" BorderColor="Azure" BorderWidth="1"
+                                 Clicked="CobrarPix_Clicked"/>
 
 
                     <Label Text="Transferir" HorizontalTextAlignment="Center" 
