@@ -81,7 +81,6 @@
                                        >
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <!--<Span Text="Minha Conta" FontSize="24" FontAttributes="Bold" />-->
                                             <Span x:Name="txt" Text="Saldo em conta" FontSize="17.5" />
                                             <Span x:Name="saldo" Text="R$ 10,00" FontSize="22" FontAttributes="Bold"/>
                                         </FormattedString>

@@ -39,11 +39,11 @@
 
                     <Entry x:Name="valor_inserido"
                            Placeholder="Valor" PlaceholderColor="black"
-                           Margin="0,0,10,0" TextColor="black" Style="{StaticResource regular}"
+                           Margin="2,0,10,0" TextColor="black" Style="{StaticResource regular}"
                            Keyboard="Numeric"
                            TextChanged="valor_inserido_TextChanged"
                            >
-                        <!-- falta fazer mascara --> 
+                        <!-- falta fazer mascara -->
                         <Entry.Behaviors>
                             <xct:MaskedBehavior 
                                 Mask="R$ AA,AA" 
@@ -51,7 +51,78 @@
                             />
                         </Entry.Behaviors>
                     </Entry>
+
+                    <Button CornerRadius="23" HeightRequest="45"
+                            BackgroundColor="#00D5D9" BorderColor="Azure" 
+                            VerticalOptions="EndAndExpand"
+                            Text="Gerar QR Code" FontAttributes="Bold" TextColor="white"
+                            Margin="10,0,10,0"/>
+
+                    <Button CornerRadius="23" HeightRequest="45"
+                            BackgroundColor="#00D5D9" BorderColor="Azure" 
+                            VerticalOptions="EndAndExpand"
+                            Text="Não definir valor" FontAttributes="Bold"
+                            TextColor="white"
+                            Margin="10,0,10,0"/>
+
+                    <StackLayout x:Name="PixCompleto_Gerado">
+
+                        <Label Text="Pix" FontSize="22" HorizontalOptions="CenterAndExpand"
+                               Margin="0,05,0,05" TextColor="Black" FontAttributes="Bold"/>
+
+                        <Label x:Name="nome_user" Text="Junior Chiodi" FontSize="22" HorizontalOptions="CenterAndExpand"
+                               Margin="0,0,0,05" TextColor="Black" FontAttributes="Bold"/>
+
+                        <Frame VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand" BackgroundColor="black"
+                            CornerRadius="10" HeightRequest="160" WidthRequest="160">
+
+                            <Image Aspect="AspectFill" x:Name="QRGerado"/>
+                        </Frame>
+
+                        <Label x:Name="precoCobrado" Text="R$ 10,00" FontSize="22" 
+                               HorizontalOptions="CenterAndExpand"
+                               Margin="0,05,0,05" TextColor="Black" FontAttributes="Bold"/>
+
+                        <Picker HeightRequest="30"
+                                Margin="50,0,50,0"
+                                TextColor="Black">
+
+                        </Picker>
+                        <StackLayout VerticalOptions="EndAndExpand">
+                            <Frame BackgroundColor="Gainsboro"
+                                   HeightRequest="100"
+                                   CornerRadius="15"
+                                   Margin="10,0,10,0">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Pix Copia e Cola"
+                                               TextColor="Black" FontAttributes="Bold"
+                                               FontSize="22"
+                                               HorizontalOptions="CenterAndExpand"/>
+                                        <ImageButton 
+                                             x:Name="copiarChave" HeightRequest="40" WidthRequest="42"
+                                             HorizontalOptions="EndAndExpand" VerticalOptions="End"
+                                             BackgroundColor="red" Margin="0,0,05,0"/>
+                                    </StackLayout>
+                                    <Button CornerRadius="15" HorizontalOptions="Start" WidthRequest="200"
+                                            HeightRequest="40" Margin="0,00,0,0"
+                                            BackgroundColor="#00D5D9" BorderColor="Azure" 
+                                            Text="Gerenciar Chave" TextColor="white"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
+
+                <!--<StackLayout>
+                    
+                    <ActivityIndicator BackgroundColor="red" IsEnabled="True"
+                                       IsVisible="true"
+                                       Color="blue"
+                                       HeightRequest="100"/>
+                   
+                </StackLayout> -->
 
             </StackLayout>
         </StackLayout>
