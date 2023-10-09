@@ -8,7 +8,7 @@
             <StackLayout>
                 <StackLayout BackgroundColor="white" Margin="0.5,0,0.5,0">
                     <Grid ColumnDefinitions="*"
-          RowDefinitions="*">
+                          RowDefinitions="*">
                         <BoxView
              CornerRadius="0,0,20,20"
              HeightRequest="60"
@@ -43,48 +43,50 @@
                            Keyboard="Numeric"
                            TextChanged="valor_inserido_TextChanged"
                            >
-                        <!-- falta fazer mascara -->
+                        <!-- falta fazer mascara 
                         <Entry.Behaviors>
-                            <xct:MaskedBehavior 
-                                Mask="R$ AA,AA" 
-                                UnMaskedCharacter="A"
-                            />
-                        </Entry.Behaviors>
+                            <local:CurrencyMaskBehavior />
+                        </Entry.Behaviors> -->
                     </Entry>
 
-                    <Button CornerRadius="23" HeightRequest="45"
+                    <Button x:Name="gerarComValor"
+                            CornerRadius="23" HeightRequest="45"
                             BackgroundColor="#00D5D9" BorderColor="Azure" 
                             VerticalOptions="EndAndExpand"
                             Text="Gerar QR Code" FontAttributes="Bold" TextColor="white"
-                            Margin="10,0,10,0"/>
+                            Margin="10,0,10,0"
+                            Clicked="gerarComValor_Clicked"/>
 
-                    <Button CornerRadius="23" HeightRequest="45"
+                    <Button x:Name="gerarSemValor"
+                            CornerRadius="23" HeightRequest="45"
                             BackgroundColor="#00D5D9" BorderColor="Azure" 
                             VerticalOptions="EndAndExpand"
                             Text="Não definir valor" FontAttributes="Bold"
                             TextColor="white"
-                            Margin="10,0,10,0"/>
+                            Margin="10,0,10,0"
+                            Clicked="gerarSemValor_Clicked"/>
 
-                    <StackLayout x:Name="PixCompleto_Gerado">
+                    <StackLayout x:Name="PixCompleto_Gerado" IsVisible="false">
 
                         <Label Text="Pix" FontSize="22" HorizontalOptions="CenterAndExpand"
                                Margin="0,05,0,05" TextColor="Black" FontAttributes="Bold"/>
 
-                        <Label x:Name="nome_user" Text="Junior Chiodi" FontSize="22" HorizontalOptions="CenterAndExpand"
+                        <Label x:Name="nome_user" Text="" FontSize="22" HorizontalOptions="CenterAndExpand"
                                Margin="0,0,0,05" TextColor="Black" FontAttributes="Bold"/>
 
                         <Frame VerticalOptions="CenterAndExpand"
                             HorizontalOptions="CenterAndExpand" BackgroundColor="black"
-                            CornerRadius="10" HeightRequest="160" WidthRequest="160">
+                            CornerRadius="10" HeightRequest="175" WidthRequest="175" Padding="7">
 
-                            <Image Aspect="AspectFill" x:Name="QRGerado"/>
+                            <Image Aspect="AspectFill" x:Name="QRGerado" xct:CornerRadiusEffect.CornerRadius="10"/>
                         </Frame>
 
-                        <Label x:Name="precoCobrado" Text="R$ 10,00" FontSize="22" 
+                        <Label x:Name="precoCobrado" FontSize="22" 
                                HorizontalOptions="CenterAndExpand"
                                Margin="0,05,0,05" TextColor="Black" FontAttributes="Bold"/>
 
-                        <Picker HeightRequest="30"
+                        <Picker x:Name="SelecaoChaves"
+                                HeightRequest="30"
                                 Margin="50,0,50,0"
                                 TextColor="Black">
 
@@ -93,37 +95,42 @@
                             <Frame BackgroundColor="Gainsboro"
                                    HeightRequest="100"
                                    CornerRadius="15"
-                                   Margin="10,0,10,0">
+                                   Margin="10,0,10,0"
+                                   VerticalOptions="EndAndExpand">
                                 <StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Pix Copia e Cola"
                                                TextColor="Black" FontAttributes="Bold"
-                                               FontSize="22"
-                                               HorizontalOptions="CenterAndExpand"/>
+                                               FontSize="23"
+                                               />
+
                                         <ImageButton 
-                                             x:Name="copiarChave" HeightRequest="40" WidthRequest="42"
+                                             x:Name="copiarChave" HeightRequest="32" WidthRequest="35"
                                              HorizontalOptions="EndAndExpand" VerticalOptions="End"
-                                             BackgroundColor="red" Margin="0,0,05,0"/>
+                                             CornerRadius="30" Padding="5"
+                                             BackgroundColor="#00D5D9" Margin="0,0,05,0"
+                                            Clicked="copiarChave_Clicked"/>
                                     </StackLayout>
-                                    <Button CornerRadius="15" HorizontalOptions="Start" WidthRequest="200"
+                                    <Label x:Name="PixCopiaeColaMostrado"
+                                           Text="111111111111111111111111111111111111"
+                                           TextColor="Black"
+                                           FontSize="18"
+                                           MaxLines="1"
+                                           />
+
+                                    <Button x:Name="compartilharChave"
+                                            CornerRadius="15" VerticalOptions="EndAndExpand"
+                                            HorizontalOptions="CenterAndExpand" WidthRequest="300"
                                             HeightRequest="40" Margin="0,00,0,0"
                                             BackgroundColor="#00D5D9" BorderColor="Azure" 
-                                            Text="Gerenciar Chave" TextColor="white"/>
+                                            Text="Compartilhar QRCode" TextColor="white"
+                                            Clicked="compartilharChave_Clicked"
+                                            />
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
-
-                <!--<StackLayout>
-                    
-                    <ActivityIndicator BackgroundColor="red" IsEnabled="True"
-                                       IsVisible="true"
-                                       Color="blue"
-                                       HeightRequest="100"/>
-                   
-                </StackLayout> -->
-
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
